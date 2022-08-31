@@ -22,11 +22,8 @@ User.belongsToMany(Review, {
   onDelete: 'SET NULL'
 });
 
-Restaurant.belongsToMany(Review, {
-  through: Review,
-  as: 'reviewed_posts',
-  foreignKey: 'restaurant_id',
-  onDelete: 'SET NULL'
+Restaurant.hasMany(Review, {
+  foreignKey: 'restaurant_id'
 });
 
 Review.belongsTo(Restaurant, {
@@ -34,8 +31,34 @@ Review.belongsTo(Restaurant, {
   onDelete: 'SET NULL'
 });
 
-Restaurant.hasMany(Review, {
-  foreignKey: 'restaurant_id'
+
+Restaurant.belongsToMany(Review, {
+  through: Review,
+  as: 'reviewed_posts',
+  foreignKey: 'restaurant_id',
+  onDelete: 'SET NULL'
 });
+
+
+Category.hasMany(Restaurant, {
+  foreignKey: 'category_id'
+});
+
+Restaurant.belongsTo(Category, {
+  foreignKey: 'category_id',
+  onDelete: 'SET NULL'
+});
+
+
+Category.belongsToMany(Restaurant, {
+  through: Restaurant,
+  as: 'restaurant_posts',
+  foreignKey: 'category_id',
+  onDelete: 'SET NULL'
+});
+
+
+
+
 
 module.exports = { User, Category, Restaurant, Review };

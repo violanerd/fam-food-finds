@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 // create our Restaurant model
 class Restaurant extends Model {
@@ -13,19 +13,19 @@ class Restaurant extends Model {
   //         id: body.restaurant_id
   //       },
   //       attributes: [
-  //         'id',
-  //         'restaurant_name',
-  //         'restaurant_url',
-  //         'created_at',
-  //         [sequelize.literal('(SELECT COUNT(*) FROM review WHERE restaurant.id = review.restaurant_id)'), 'review_count']
+  //         "id",
+  //         "restaurant_name",
+  //         "restaurant_url",
+  //         "created_at",
+  //         [sequelize.literal("(SELECT COUNT(*) FROM review WHERE restaurant.id = review.restaurant_id)"), "review_count"]
   //       ],
   //       include: [
   //         {
   //           model: models.Review,
-  //           attributes: ['id', 'review_text', 'restaurant_id', 'user_id', 'created_at'],
+  //           attributes: ["id", "review_text", "restaurant_id", "user_id", "created_at"],
   //           include: {
   //             model: models.User,
-  //             attributes: ['username']
+  //             attributes: ["username"]
   //           }
   //         }
   //       ]
@@ -59,7 +59,7 @@ Restaurant.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'restaurant'
+    modelName: "restaurant"
   }
 );
 

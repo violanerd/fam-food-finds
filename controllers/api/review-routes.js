@@ -1,9 +1,9 @@
-const router = require('express').Router();
-const {Category, Restaurant, Review, RestaurantCategory, User} = require('../../models')
+const router = require("express").Router();
+const {Category, Restaurant, Review, RestaurantCategory, User} = require("../../models")
 
 // /api/review
 // get all reviews by restaurant id
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
       const restaurantData = await Restaurant.findByPk(req.params.id, {
         include: [

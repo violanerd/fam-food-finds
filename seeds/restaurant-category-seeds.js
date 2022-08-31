@@ -1,4 +1,4 @@
-const { RestaurantCategory } = require('../models');
+const { RestaurantCategory } = require("../models");
 
 const restaurantcategoryData = [
   {

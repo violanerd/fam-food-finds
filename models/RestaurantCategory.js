@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
 class RestaurantCategory extends Model {}
 
@@ -24,8 +24,8 @@ RestaurantCategory.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'category',
-                key: 'id'
+                model: "category",
+                key: "id"
             }
         }
     },
@@ -33,7 +33,7 @@ RestaurantCategory.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'restaurant_category'
+        modelName: "restaurant_category"
       }
 )
 module.exports = RestaurantCategory;

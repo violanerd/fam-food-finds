@@ -25,6 +25,16 @@ const reviewdata = [
         review_text: "Oooooh the shroom burger - fired to perfection!",
         user_id: "3",
         restaurant_id: "5",
+    },
+    {
+        review_text: "Agh so fake",
+        user_id: "3",
+        restaurant_id: "1",
+    },
+    {
+        review_text: "WHat are you talking about, imagination is the best!",
+        user_id: "3",
+        restaurant_id: "1",
     }
   ];
   

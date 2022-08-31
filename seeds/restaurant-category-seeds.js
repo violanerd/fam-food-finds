@@ -26,8 +26,12 @@ const restaurantcategoryData = [
     category_id: 3,
   },
   {
-    restaurant_id: 2,
+    restaurant_id: 3,
     category_id: 5,
+  },
+  {
+    restaurant_id: 5,
+    category_id: 3,
   }
 ];
 

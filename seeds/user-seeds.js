@@ -6,7 +6,7 @@ const userdata = [
     password: 'password123'
   },
   {
-    username: 'dauglas',
+    username: 'douglas',
     password: 'password123'
   },
   {

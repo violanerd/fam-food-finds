@@ -14,8 +14,8 @@ class Restaurant extends Model {
         },
         attributes: [
           'id',
-          'restauran_name',
-          'restauran_url',
+          'restaurant_name',
+          'restaurant_url',
           'created_at',
           [sequelize.literal('(SELECT COUNT(*) FROM review WHERE restaurant.id = review.restaurant_id)'), 'review_count']
         ],

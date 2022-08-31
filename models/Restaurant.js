@@ -3,35 +3,35 @@ const sequelize = require('../config/connection');
 
 // create our Restaurant model
 class Restaurant extends Model {
-  static review(body, models) {
-    return models.Review.create({
-      user_id: body.user_id,
-      restaurant_id: body.restaurant_id
-    }).then(() => {
-      return Restaurant.findOne({
-        where: {
-          id: body.restaurant_id
-        },
-        attributes: [
-          'id',
-          'restaurant_name',
-          'restaurant_url',
-          'created_at',
-          [sequelize.literal('(SELECT COUNT(*) FROM review WHERE restaurant.id = review.restaurant_id)'), 'review_count']
-        ],
-        include: [
-          {
-            model: models.Review,
-            attributes: ['id', 'review_text', 'restaurant_id', 'user_id', 'created_at'],
-            include: {
-              model: models.User,
-              attributes: ['username']
-            }
-          }
-        ]
-      });
-    });
-  }
+  // static review(body, models) {
+  //   return models.Review.create({
+  //     user_id: body.user_id,
+  //     restaurant_id: body.restaurant_id
+  //   }).then(() => {
+  //     return Restaurant.findOne({
+  //       where: {
+  //         id: body.restaurant_id
+  //       },
+  //       attributes: [
+  //         'id',
+  //         'restaurant_name',
+  //         'restaurant_url',
+  //         'created_at',
+  //         [sequelize.literal('(SELECT COUNT(*) FROM review WHERE restaurant.id = review.restaurant_id)'), 'review_count']
+  //       ],
+  //       include: [
+  //         {
+  //           model: models.Review,
+  //           attributes: ['id', 'review_text', 'restaurant_id', 'user_id', 'created_at'],
+  //           include: {
+  //             model: models.User,
+  //             attributes: ['username']
+  //           }
+  //         }
+  //       ]
+  //     });
+  //   });
+  // }
 }
 
 // create fields/columns for Restaurant model
@@ -53,21 +53,7 @@ Restaurant.init(
       validate: {
         isURL: true
       }
-    },
-    review_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'review',
-        key: 'id'
-      }
-    },
-    category_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'category',
-          key: 'id'
-        }
-      }
+    }
   },
   {
     sequelize,

@@ -1,7 +1,8 @@
 const seedUsers = require('./user-seeds');
 const seedCategory = require('./category-seeds')
 const seedRestaurant = require('./restaurant-seeds');
-const seedReview = require('./review-seeds')
+const seedReview = require('./review-seeds');
+const seedRestaurantCategory = require('./restaurant-category-seeds')
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
@@ -11,9 +12,11 @@ const seedAll = async () => {
   console.log('--------------');
   await seedCategory();
   console.log('--------------');
+  await seedRestaurant();
+  console.log('--------------');
   await seedReview();
   console.log('--------------');
-  await seedRestaurant();
+  await seedRestaurantCategory();
   console.log('--------------');
   process.exit(0);
 };

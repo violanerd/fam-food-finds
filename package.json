@@ -4,7 +4,8 @@
   "description": "## Description",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./input.css -o ./public/stylesheets/main.css",
+    "watch": "npx tailwindcss -i ./input.css -o ./public/stylesheets/main.css --watch",
     "start": "nodemon server.js",
     "seeds": "node seeds/index.js"
   },
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/DouglasRed/fam-food-finds#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.8",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
     "dotenv": "^16.0.1",
@@ -29,7 +31,11 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
     "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
   }
-
 }

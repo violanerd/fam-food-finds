@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 router.get("/:category", async (req, res) => {
   // this code allows for both "Italian" and "Burger-Joint" to be passed in
   const categoryName = req.params.category.replace("-", " ");
-  console.log(catName);
+  
   //find category id
   try{ 
     const category_id = await Category.findOne({

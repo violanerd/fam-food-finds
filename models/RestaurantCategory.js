@@ -3,7 +3,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class RestaurantCategory extends Model {}
-
+// a way to make these unique? 
 RestaurantCategory.init(
     {
         id: {

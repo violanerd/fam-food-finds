@@ -1,3 +1,4 @@
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -49,3 +50,4 @@ Review.init(
 );
 
 module.exports = Review;
+

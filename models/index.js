@@ -32,6 +32,12 @@ Category.belongsToMany(Restaurant, {
   through: RestaurantCategory,
   foreignKey: "category_id"
 })
+RestaurantCategory.belongsTo(Restaurant,{
+  foreignKey: "restaurant_id"
+})
+Restaurant.hasMany(RestaurantCategory,{
+  foreignKey: "restaurant_id"
+})
 // User.belongsToMany(Review, {
 //   through: Review,
 //   as: "reviwed_posts",

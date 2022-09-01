@@ -1,3 +1,4 @@
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -19,8 +20,13 @@ Review.init(
         len: [1],
       },
     },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "user",
         key: "id",
@@ -28,6 +34,7 @@ Review.init(
     },
     restaurant_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "restaurant",
         key: "id",
@@ -43,3 +50,4 @@ Review.init(
 );
 
 module.exports = Review;
+

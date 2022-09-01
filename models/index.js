@@ -1,3 +1,4 @@
+
 // import all models
 const User = require("./User");
 const Category = require("./Category");
@@ -57,3 +58,4 @@ Category.belongsToMany(Restaurant, {
 // });
 
 module.exports = { User, Category, Restaurant, Review, RestaurantCategory };
+

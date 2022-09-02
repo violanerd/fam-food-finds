@@ -21,4 +21,15 @@ router.get('/:id', async (req, res) => { //withAuth add
 
   });
 
+  
+// /dashboard/edit
+// get one restaurant to edit
+router.get('/edit/:id', async (req, res) => {})
+
+// /dashboard/new
+// CREATE a restaurant - render new page
+router.get('/new', async (req, res) => {})
+
+
+
 module.exports = router;

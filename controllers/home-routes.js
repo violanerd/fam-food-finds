@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User, Category, Review } = require("../models");
 
 // login form
 router.get("/login", (req, res) => {
@@ -11,4 +11,20 @@ router.get("/login", (req, res) => {
     res.render("signup");
   });
 
+//get all restaurants 
+//GET "/"
+router.get("/", async (req, res) => {
+  try {
+    const restaurantData = await Restaurant.findAll({
+      include: [{model: Category,
+      attributes: ["category_name"]}, {model: Review,
+      attributes: ["id", "review_text", "user_id"],
+        include: {model: User, attributes: ["username"]}}]
+    })
+    res.status(200).json(restaurantData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
+});
   module.exports = router;

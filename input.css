@@ -1,3 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+@layer components {
+    .card {
+        @apply
+        bg-white text-gray-700 w-72 min-h-[10rem] shadow-lg rounded-md overflow-hidden
+    }
+    .badge {
+        @apply
+        px-3 py-1 rounded-full text-xs bg-gray-100
+    }
+
+    .restaurant_name {
+        @apply
+        font-semibold text-2xl 
+        overflow-ellipsis overflow-hidden whitespace-nowrap text-gray-800 
+    }
+}
+
+/* Hamburger Menu */
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+}

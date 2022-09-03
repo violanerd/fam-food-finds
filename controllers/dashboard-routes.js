@@ -7,12 +7,19 @@ const withAuth = require('../utils/auth')
 // code to render all the restaurants from one user 
 // /dashboard/
 router.get('/:id', async (req, res) => { //withAuth add
+    // for design dashboard layout I just test for user_id = 1 to get the restaurant post by user.
+    const userId = 1;
     try {
         const restaurantData = await Restaurant.findAll({
-            where: {user_id: req.params.id},//req.session.user_id},
-            include: [{model: User}]
+            where: {user_id: userId},//req.session.user_id},
+            include: [{model: User, attributes: ["username"]}]
         })
-        res.status(200).json(restaurantData)
+        const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+        res.render("post-restaurants", { 
+            layout: "dashboard",
+            restaurants,
+            username: restaurants[0].user.username,
+         });
         //const restaurants = restaurantData.map(restaurant => restaurant.get({ plain: true}))
         //res.render('dashboard', { restaurants, loggedIn: req.session.loggedIn });
     } catch (err) {
@@ -28,7 +35,11 @@ router.get('/edit/:id', async (req, res) => {})
 
 // /dashboard/new
 // CREATE a restaurant - render new page
-router.get('/new', async (req, res) => {})
+router.get('/new', async (req, res) => {
+    res.render("new-restaurant", {
+        layout: "dashboard",
+      });
+})
 
 
 

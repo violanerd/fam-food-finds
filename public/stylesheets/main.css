@@ -580,16 +580,16 @@ video {
   display: flex;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .h-2 {
   height: 0.5rem;
 }
 
 .h-5 {
   height: 1.25rem;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .min-h-screen {

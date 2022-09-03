@@ -1,32 +1,31 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Review } = require("../../models");
 
 // signup
 router.post("/", async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
     });
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.username = newUser.username;
       req.session.loggedIn = true;
-      res.status(200).json({user: newUser, message: "You are signed up!"})
-    })
+      res.status(200).json({ user: newUser, message: "You are signed up!" });
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
 // login
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username
-    }
-  }).then(dbUserData => {
+      username: req.body.username,
+    },
+  }).then((dbUserData) => {
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that email address!" });
       return;
@@ -43,7 +42,7 @@ router.post("/login", (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
-  
+
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
   });
@@ -55,8 +54,7 @@ router.post("/logout", (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
-  }
-  else {
+  } else {
     res.status(404).end();
   }
 });
@@ -64,12 +62,38 @@ router.post("/logout", (req, res) => {
 // route for testing purposes
 router.get("/", async (req, res) => {
   try {
-    const userData = await User.findAll({
-    })
+    const userData = await User.findAll({});
     res.status(200).json(userData);
-} catch (err) {
+  } catch (err) {
     res.status(500).json(err);
-}
-})
+  }
+});
+
+// find user by ID
+router.get("/:id", (req, res) => {
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Review,
+        attributes: ["id", "review_text", "rating", "user_id"],
+      },
+    ],
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

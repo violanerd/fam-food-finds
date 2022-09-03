@@ -11,7 +11,11 @@ router.get("/:id", async (req, res) => {
             {model: Review,
             include: [{model: User, attributes: ["username"]}]}]
       })
-      res.status(200).json(reviewData);
+
+      const reviewPost = reviewData.get({ plain: true });
+       res.render("review", { 
+        reviewPost,  
+      });
     } catch (err) {
       res.status(500).json(err);
     }

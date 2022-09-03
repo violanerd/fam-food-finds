@@ -6,3 +6,12 @@ btn.addEventListener("click", () => {
     nav.classList.toggle("flex");
     nav.classList.toggle("hidden");
 });
+
+document.querySelector("#category").addEventListener("mousedown", selectCategoryHandler);
+async function selectCategoryHandler(event){
+    //document.reload();
+    let category = event.target.textContent;
+    let categoryName = category.trim().replace(" ", "-")
+    //console.log(categoryName)
+    window.location.replace(`/${categoryName}`);
+}

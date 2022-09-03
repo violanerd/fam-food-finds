@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Restaurant, User } = require("../models");
+const { Restaurant, Category, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // code to render all the restaurants from one user
@@ -33,8 +33,14 @@ router.get("/:id", async (req, res) => {
 // CREATE a restaurant - render new page
 // load new create form for new post when click create new
 router.get("/new", async (req, res) => {
+  const categeriesData = await Category.findAll({});
+  const categories = categeriesData.map((category) =>
+    category.get({ plain: true })
+  );
+  console.log(categories)
   res.render("new-restaurant", {
     layout: "dashboard",
+    categories,
   });
 });
 

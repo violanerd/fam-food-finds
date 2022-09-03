@@ -6,12 +6,14 @@ router.post("/", async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,
-      email: req.body.email,
       password: req.body.password
     });
-
-    res.redirect("/login");
-
+    req.session.save(() => {
+      req.session.user_id = newUser.id;
+      req.session.username = newUser.username;
+      req.session.loggedIn = true;
+      res.status(200).json({user: newUser, message: "You are signed up!"})
+    })
   } catch (err) {
     res.status(500).json(err);
   }
@@ -58,5 +60,16 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
+
+// route for testing purposes
+router.get("/", async (req, res) => {
+  try {
+    const userData = await User.findAll({
+    })
+    res.status(200).json(userData);
+} catch (err) {
+    res.status(500).json(err);
+}
+})
 
 module.exports = router;

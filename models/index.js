@@ -1,4 +1,3 @@
-
 // import all models
 const User = require("./User");
 const Category = require("./Category");
@@ -33,6 +32,20 @@ Category.belongsToMany(Restaurant, {
   through: RestaurantCategory,
   foreignKey: "category_id"
 })
+RestaurantCategory.belongsTo(Restaurant,{
+  foreignKey: "restaurant_id"
+})
+Restaurant.hasMany(RestaurantCategory,{
+  foreignKey: "restaurant_id"
+})
+
+User.hasMany(Restaurant,{
+  foreignKey: "user_id"})
+
+Restaurant.belongsTo(User, {
+  foreignKey: "user_id"
+})
+
 // User.belongsToMany(Review, {
 //   through: Review,
 //   as: "reviwed_posts",
@@ -58,4 +71,3 @@ Category.belongsToMany(Restaurant, {
 // });
 
 module.exports = { User, Category, Restaurant, Review, RestaurantCategory };
-

@@ -7,7 +7,7 @@
     <link rel='stylesheet' type='text/css' href='/stylesheets/main.css' />
     <title>Fam Food Finds</title>
   </head>
-  <body class="h-screen">
+  <body class="flex flex-col h-screen">
     <header>
         {{!-- Navbar --}}
         <nav class="relative w-full p-6 shadow-xl">
@@ -21,8 +21,7 @@
             <div class="hidden md:flex space-x-6">
               <a href="/" class="hover:text-darkGrayishBlue">Home</a>
               <a href="/dashboard" class="hover:text-darkGrayishBlue">Dashboard</a>
-              <a href="/login" class="hover:text-darkGrayishBlue">Login</a>
-              <a href="/signup" class="hover:text-darkGrayishBlue">Signup</a>
+              <a href="/" class="hover:text-darkGrayishBlue">Logout</a>
             </div>
 
             {{!-- Humberger Icon --}}
@@ -38,19 +37,26 @@
             <div id="menu" class="absolute flex-col z-10 items-center self-end hidden py-8 mt-7 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
                 <a href="/" class="hover:text-darkGrayishBlue">Home</a>
                 <a href="/dashboard" class="hover:text-darkGrayishBlue">Dashboard</a>
-                <a href="/login" class="hover:text-darkGrayishBlue">Login</a>
-                <a href="/signup" class="hover:text-darkGrayishBlue">Signup</a>
+                <a href="/" class="hover:text-darkGrayishBlue">Logout</a>
             </div>
           </div>
         </nav>
         {{!-- end Navvar --}}
       </header>
     {{!-- Hero Section --}}
-    <section id="hero">
-    </section>
-    <main class=" ">
+    <div class="flex items-center justify-center p-10">
+        <h1 class="dashboard-card"><a href="/dashboard">Your Dashboard</a></h1>
+    </div>
+    <main class="flex-grow">
       {{{ body }}}
     </main>
+    <footer class="flex items-center justify-center p-5">
+      <div class="w-50 bg-darkGrayishBlue p-5 font-bold text-cyan-50">
+        <a href="/dashboard/restaurant/new">➕ New Restaurant</a>
+      </div>
+    </footer>
     <script src="/javascript/script.js"></script>
   </body>
 </html>
+
+{{!-- <script src="/javascript/logout.js"></script> --}}

@@ -24,11 +24,18 @@
 
     .restaurant_name {
         @apply
-        font-semibold text-2xl 
+        font-semibold text-3xl 
         overflow-ellipsis overflow-hidden whitespace-nowrap text-gray-800 
         bg-red-100
         p-3
         mt-0 ml-0 mr-0 shadow-md
+    }
+
+    .dashboard-card{
+        @apply
+        font-semibold text-2xl 
+        overflow-ellipsis overflow-hidden whitespace-nowrap text-gray-800 
+        bg-red-100 p-3 mt-0 ml-0 mr-0 shadow-md
     }
     .user_comment_name {
         @apply

@@ -606,6 +606,26 @@ font-family: 'Readex Pro', sans-serif;
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
   padding: 0.75rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.dashboard-card{
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+  padding: 0.75rem;
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
@@ -676,6 +696,10 @@ font-family: 'Readex Pro', sans-serif;
   z-index: 10;
 }
 
+.col-auto{
+  grid-column: auto;
+}
+
 .m-5{
   margin: 1.25rem;
 }
@@ -715,6 +739,22 @@ font-family: 'Readex Pro', sans-serif;
 
 .mt-7{
   margin-top: 1.75rem;
+}
+
+.ml-20{
+  margin-left: 5rem;
+}
+
+.mr-20{
+  margin-right: 5rem;
+}
+
+.mb-3{
+  margin-bottom: 0.75rem;
+}
+
+.mt-0{
+  margin-top: 0px;
 }
 
 .block{
@@ -793,6 +833,14 @@ font-family: 'Readex Pro', sans-serif;
 
 .flex-auto{
   flex: 1 1 auto;
+}
+
+.flex-grow{
+  flex-grow: 1;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }
 
 .appearance-none{
@@ -919,6 +967,16 @@ font-family: 'Readex Pro', sans-serif;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
+.bg-darkGrayishBlue{
+  --tw-bg-opacity: 1;
+  background-color: hsl(227 12% 61% / var(--tw-bg-opacity));
+}
+
+.bg-darkBlue{
+  --tw-bg-opacity: 1;
+  background-color: hsl(228 39% 23% / var(--tw-bg-opacity));
+}
+
 .bg-gray-50{
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -931,6 +989,10 @@ font-family: 'Readex Pro', sans-serif;
 
 .p-10{
   padding: 2.5rem;
+}
+
+.p-3{
+  padding: 0.75rem;
 }
 
 .p-5{
@@ -1017,6 +1079,10 @@ font-family: 'Readex Pro', sans-serif;
   text-align: center;
 }
 
+.text-right{
+  text-align: right;
+}
+
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1025,6 +1091,11 @@ font-family: 'Readex Pro', sans-serif;
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-xs{
@@ -1063,6 +1134,11 @@ font-family: 'Readex Pro', sans-serif;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-cyan-50{
+  --tw-text-opacity: 1;
+  color: rgb(236 254 255 / var(--tw-text-opacity));
+}
+
 .text-neutral-600{
   --tw-text-opacity: 1;
   color: rgb(82 82 82 / var(--tw-text-opacity));
@@ -1088,6 +1164,12 @@ font-family: 'Readex Pro', sans-serif;
 .shadow-xl{
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-sm{
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1164,9 +1246,19 @@ font-family: 'Readex Pro', sans-serif;
   background-color: hsl(227 12% 61% / var(--tw-bg-opacity));
 }
 
+.hover\:bg-slate-300:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
 .hover\:text-darkGrayishBlue:hover{
   --tw-text-opacity: 1;
   color: hsl(227 12% 61% / var(--tw-text-opacity));
+}
+
+.hover\:text-cyan-50:hover{
+  --tw-text-opacity: 1;
+  color: rgb(236 254 255 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{
@@ -1228,8 +1320,16 @@ font-family: 'Readex Pro', sans-serif;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .md\:flex-row{
+    flex-direction: row;
+  }
+
   .md\:gap-8{
     gap: 2rem;
+  }
+
+  .md\:gap-4{
+    gap: 1rem;
   }
 
   .md\:px-12{

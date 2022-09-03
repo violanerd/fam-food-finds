@@ -1,0 +1,29 @@
+<div class="border shadow-sm ml-20 mr-20 mb-3">
+  <div class="text-2xl p-3 mt-0 bg-darkGrayishBlue">
+      {{restaurant_name}}
+  </div>
+  <ul class="flex flex-col md:flex-row md:gap-4 text-right m-5">
+        <li class=" flex-grow text-left">
+            <a href="{{restaurant_url}}">
+            {{restaurant_url}}
+            </a>
+            <div class="">
+                {{createdAt}}
+            </div>
+        </li>
+        <li class="m-3">
+            Rating
+        </li>
+   </ul>
+  <ul class="flex flex-col md:flex-row md:gap-4 text-right m-5 justify-end">
+    <a href="/restaurant/view/{{id}}"><li class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer">
+      View
+    </li></a>
+    <a href="/restaurant/{{id}}"></a><li class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer">
+      Edit
+    </li></a>
+    <a href="/restaurant/{{id}}"></a><li class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer">
+      Delete
+    </li></a>
+  </ul>
+</div>

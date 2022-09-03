@@ -1,10 +1,6 @@
 const router = require("express").Router();
-const { User, Category, Review } = require("../models");
+const { User, Category, Restaurant, Review } = require("../models");
 
-// login form
-router.get("/", (req, res) => {
-  res.render("homepage");
-});
 
 // login form
 router.get("/login", (req, res) => {
@@ -25,8 +21,14 @@ router.get("/", async (req, res) => {
       attributes: ["category_name"]}, {model: Review,
       attributes: ["id", "review_text", "user_id"],
         include: {model: User, attributes: ["username"]}}]
-    })
-    res.status(200).json(restaurantData);
+    });
+    
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+    const categeriesData = await Category.findAll({});
+    const categories = categeriesData.map((category) => category.get({ plain: true }));
+    res.render("homepage", { restaurants, categories });
+    // res.status(200).json(restaurantData);
+    // restaurants
   } catch (err) {
     res.status(500).json(err);
   }

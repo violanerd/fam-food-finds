@@ -32,12 +32,11 @@ router.get("/:id", async (req, res) => {
 // /dashboard/new
 // CREATE a restaurant - render new page
 // load new create form for new post when click create new
-router.get("/new", async (req, res) => {
+router.get("/restaurant/new", async (req, res) => {
   const categeriesData = await Category.findAll({});
   const categories = categeriesData.map((category) =>
     category.get({ plain: true })
   );
-  console.log(categories)
   res.render("new-restaurant", {
     layout: "dashboard",
     categories,

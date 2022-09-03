@@ -42,28 +42,37 @@ router.get("/", async (req, res) => {
 });
 
 // get single post
-router.get("/restaurant/:id", async (req, res) => {
-  try {
-    const restaurantData = await Restaurant.findOne({
-      include: [
-        { model: Category, attributes: ["category_name"] },
-        {
-          model: Review,
-          attributes: ["id", "review_text", "user_id"],
-          include: { model: User, attributes: ["username"] },
-        },
-      ],
+router.get("/restaurant/view/:id", async (req, res) => {
+  const restaurantId = req.params.id;
+  // res.render("restaurant-view");
+
+  try{
+    const restaurantData = await Restaurant.findAll({
+      where: { id: restaurantId},
     });
 
-    const restaurants = restaurantData.map((restaurant) =>
-      restaurant.get({ plain: true })
-    );
-    res.render("homepage", { restaurants});
-    // res.status(200).json(restaurantData);
-    // restaurants
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+
+    res.render("restaurant-view", { restaurants });
+
   } catch (err) {
     res.status(500).json(err);
   }
+  // try {
+  //   const restaurantData = await Restaurant.findOne({
+  //     where: { id: restaurantId },
+  //   });
+
+  //   const restaurants = restaurantData.map((restaurant) =>
+  //     restaurant.get({ plain: true })
+  //   );
+  //   console.log(restaurantData)
+  //   res.render("restaurant-view", { restaurants });
+  //   // res.status(200).json(restaurantData);
+  //   // restaurants
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
 
 module.exports = router;

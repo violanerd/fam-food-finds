@@ -1,18 +1,20 @@
-<div class="">
-  <h2 class="">New Restuarant</h2>
-  <form class="" id="new-restaurant-form">
-    <input type="hidden" name="restaurant-id" value="{{restaurant.id}}"/>
-    <div>
-      <label class="">Restaurant Name:</label>
-      <input class="" type="text" name="restaurant-name"/>
-    </div>
-    <div>
-      <label class="">Restaurant URL:</label>
-      <input class="" type="text" name="restaurant-url"/>
-    </div>
-    <div class=" flex items-end justify-end gap-4">
-        <p>Categories:</p>
-            <button class="relative flex justify-start items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 group">
+
+<div class="text-gray-800 antialiased px-4 py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl mx-auto text-center">
+    <span class="text-2xl font-light">New Restuarant</span>
+    <form class="" id="new-restaurant-form">
+      <input type="hidden" name="restaurant-id" value="{{restaurant.id}}"/>
+      <div class="relative mt-4 bg-white shadow-md sm:rounded-lg text-left">
+        <div class="h-2 bg-darkGrayishBlue rounded-t-md"></div>
+        <div class="py-6 px-8">
+          <label class="block font-semibold">Restaurant Name:<label>
+          <input type="text" placeholder="Restaurant name" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-name" />
+          <label class="block mt-3 font-semibold">Restaurant URL:<label>
+          <input type="text" placeholder="Restaurant URL" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-url" />
+          {{!-- Categories --}}
+          <div class=" flex items-end justify-start gap-4 mt-3">
+            <p>Categories:</p>
+            <button class="relative flex items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 group">
                 <p class="px-4">Choose...</p>
                 <span class="border-l hover:bg-gray-100">
                     <i class='fas fa-angle-down hover:text-darkGrayishBlue w-6 h-6 text-gray-600'></i>
@@ -20,14 +22,19 @@
                 <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-white shadow-md mt-1 rounded">
                     <ul class="text-left border rounded">
                       {{#each categories as |category|}}
-                          <a href=""><li class="px-4 py-1 hover:bg-red-50 border-b"> {{category.category_name}}</li></a>
+                          <li class="px-4 py-1 hover:bg-red-50 border-b"> {{category.category_name}}</li>
                       {{/each}}
                     </ul>
                 </div>
             </button>
-    </div>
- 
-    <button class="btn btn-primary" type="submit">Post</button>
-  </form>
+          </div>
+          
+          <div class="flex justify-end items-baseline ">
+              <button class="mt-4 bg-darkGrayishBlue text-white py-2 px-6 rounded-lg" type="submit">Create</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 <script src="/javascript/new-restaurant.js"></script>

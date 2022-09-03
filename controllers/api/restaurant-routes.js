@@ -1,8 +1,11 @@
 const router = require("express").Router();
-const {Category, Restaurant, Review, RestaurantCategory, User} = require("../../models")
-
-
-
+const {
+  Category,
+  Restaurant,
+  Review,
+  RestaurantCategory,
+  User,
+} = require("../../models");
 
 // filter by category
 // GET /api/restaurant/:category

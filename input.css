@@ -1,3 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+@layer components {
+    .card {
+        @apply
+        flex 
+        bg-white text-gray-700 w-24
+        shadow-lg
+        rounded-md overflow-hidden
+        mt-5
+    }
+    .badge {
+        @apply
+        px-3 py-1 rounded-full bg-gray-100 p-5 h-10 w-20
+    }
+
+    .restaurant_name {
+        @apply
+        font-semibold text-2xl 
+        overflow-ellipsis overflow-hidden whitespace-nowrap text-gray-800 
+        bg-red-100
+        p-3
+        mt-0 ml-0 mr-0 shadow-md
+    }
+    .user_comment_name {
+        @apply
+        font-semibold text-gray-800 
+        p-3 w-60 underline
+
+    }
+
+    .comment_text {
+        @apply
+        text-gray-800 pl-3
+    }
+
+    .writer_review {
+        @apply
+        flex flex-col items-center justify-center mt-0         
+        shadow-lg rounded-md overflow-hidden h-36 hover:bg-red-50
+        cursor-pointer
+    }
+}
+
+/* Hamburger Menu */
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+}

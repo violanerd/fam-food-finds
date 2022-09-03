@@ -7,6 +7,33 @@ const {
   User,
 } = require("../../models");
 
+// Get all reviews
+router.get("/", (req, res) => {
+  console.log("======================");
+  Review.findAll({
+    attributes: [
+      "id",
+      "review_text",
+      "rating",
+      "user_id",
+      "restaurant_id",
+      "created_at",
+    ],
+    order: [["created_at", "DESC"]],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbReviewData) => res.json(dbReviewData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // get all reviews by restaurant id
 // /api/review/1
 router.get("/:id", async (req, res) => {

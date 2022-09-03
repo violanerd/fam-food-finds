@@ -1,4 +1,3 @@
-
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -42,18 +41,18 @@ Restaurant.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     restaurant_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     restaurant_url: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isURL: true
-      }
+        isURL: true,
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -68,10 +67,8 @@ Restaurant.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "restaurant"
+    modelName: "restaurant",
   }
 );
 
 module.exports = Restaurant;
-
-

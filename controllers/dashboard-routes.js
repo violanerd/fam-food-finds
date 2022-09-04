@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Restaurant, Category, User } = require("../models");
+const { Restaurant, Category, User, Review } = require("../models");
 const withAuth = require("../utils/auth");
 
 // code to render all the restaurants from one user
@@ -46,5 +46,47 @@ router.get("/restaurant/new", async (req, res) => {
 // /dashboard/edit
 // get one restaurant to edit
 router.get("/edit/:id", async (req, res) => {});
+
+// it will load to edit form when click on post itself.
+router.get("/restaurant/edit/:id", async (req, res) => {
+  try {
+    const restaurantData = await Restaurant.findByPk(req.params.id);
+    const categeriesData = await Category.findAll({});
+    const categories = categeriesData.map((category) =>
+      category.get({ plain: true })
+    );
+    if (restaurantData) {
+      const restaurant = restaurantData.get({ plain: true });
+      res.render("edit-restaurant", {
+        layout: "dashboard",
+        restaurant,
+        categories,
+      });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.redirect("login");
+  }
+});
+
+// comment will load to edit form when click on post itself.
+router.get("/review/edit/:id", async (req, res) => {
+  try {
+    const reviewData = await Review.findByPk(req.params.id);
+
+    if (reviewData) {
+      const review = reviewData.get({ plain: true });
+      res.render("edit-review", {
+        layout: "dashboard",
+        review,
+      });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.redirect("login");
+  }
+});
 
 module.exports = router;

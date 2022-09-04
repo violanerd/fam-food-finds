@@ -7,7 +7,10 @@ btn.addEventListener("click", () => {
     nav.classList.toggle("hidden");
 });
 
-document.querySelector("#category").addEventListener("mousedown", selectCategoryHandler);
+if (window.location.pathname === "/"){
+    document.querySelector("#category").addEventListener("mousedown", selectCategoryHandler);
+}
+
 async function selectCategoryHandler(event){
     //document.reload();
     let category = event.target.textContent;

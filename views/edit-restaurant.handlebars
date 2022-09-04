@@ -1,7 +1,7 @@
 
 <div class="text-gray-800 antialiased px-4 py-6 flex flex-col justify-center sm:py-12">
   <div class="relative py-3 sm:max-w-xl mx-auto text-center">
-    <span class="text-2xl font-light">Edit Restaurant</span>
+    <span class="text-2xl font-light">Edit Restuarant</span>
     <form class="" id="edit-restaurant-form">
       <input type="hidden" name="restaurant-id" value="{{restaurant.id}}"/>
       <div class="relative mt-4 bg-white shadow-md sm:rounded-lg text-left">
@@ -11,13 +11,15 @@
           <input type="text" placeholder="Restaurant name" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-name" />
           <label class="block mt-3 font-semibold">Restaurant URL:<label>
           <input type="text" placeholder="Restaurant URL" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-url" />
+          <label class="block mt-3 font-semibold">Restaurant Description:<label>
+          <textarea class="px-3 py-5 mt-2 h-28 w-full appearance-none block bg-gray-50 text-gray-600 border" placeholder="Restaurant Description" name="restaurant-description"></textarea>
           {{!-- Categories --}}
           <div class=" flex items-end justify-start gap-4 mt-3">
             <p>Categories:</p>
-            <button class="relative flex items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 group">
+            <button type="click" class="relative flex items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 group" id="btn-categories">
                 <p class="px-4">Choose...</p>
-                <span class="border-l hover:bg-gray-100">
-                    <i class='fas fa-angle-down hover:text-darkGrayishBlue w-6 h-6 text-gray-600'></i>
+                <span class="border-l hover:bg-white-100">
+                    <svg class="w-5 h-5 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </span>
                 <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-white shadow-md mt-1 rounded">
                     <ul class="text-left border rounded">
@@ -30,7 +32,7 @@
           </div>
           
           <div class="flex justify-end items-baseline ">
-              <button class="mt-4 bg-darkGrayishBlue text-white py-2 px-6 rounded-lg" type="submit">Edit</button>
+              <button class="w-32 mt-5 mr-3 ml-3 bg-gray-600 px-5 py-2 text-sm shadow-md tracking-wider text-white rounded-full hover:bg-green-400 hover:shadow-lg focus:outline-none" type="click" id="btn-edit">Edit</button>
           </div>
         </div>
       </div>

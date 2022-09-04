@@ -51,8 +51,8 @@
 
     .writer_review {
         @apply
-        flex flex-col items-center justify-center mt-0         
-        shadow-lg rounded-md overflow-hidden h-36 hover:bg-red-50
+        flex flex-col items-center mr-2 ml-2 mt-0  
+        shadow-lg  overflow-hidden h-52 
         cursor-pointer
     }
 }
@@ -103,3 +103,12 @@
 .open .hamburger-bottom {
     transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
+
+.line-clamp {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+

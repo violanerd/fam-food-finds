@@ -4,7 +4,7 @@
       <li class="md:col-span-2 bg-white rounded-lg shadow border">
         <div class="">
           <div class="restaurant_name">
-            <p>Fung Wong</p>
+            <p>{{ reviewPost.restaurant_name}}</p>
           </div>
           <div class="review_and_comment">
             <div class="review_rate m-5 grid grid-cols-2 items-center justify-center">
@@ -23,7 +23,7 @@
               <div class="mt-5">
                 <div class="form">
                   <div class="flex-auto w-full md-1 text-xs space-y-2">
-                    <label class=" text-neutral-600 py-2">Comment</label>
+                    <label class=" text-neutral-600 py-2">Add a Review</label>
                     <textarea class="h-28 w-full appearance-none block bg-gray-50 text-gray-600 border e"></textarea>
                   </div>
                 </div>
@@ -33,24 +33,14 @@
         </div>
       </li>
       <li class="bg-white rounded-lg shadow-xl">
-        <div class="">
+        <div class="reviews">
           <ul>
+            {{#each reviewPost.reviews}}
             <li class="p-2 text-sm">
-              <div class="user_comment_name">Devid Allie</div>
-              <div class="comment_text">I live on the other side of the island and I don't even...</div>
+              <div class="user_comment_name">{{user.username}}</div>
+              <div class="comment_text">{{review_text}}</div>
             </li>
-            <li class="p-2 text-sm">
-              <div class="user_comment_name">Devid Allie</div>
-              <div class="comment_text">I live on the other side of the island and I don't even...</div>
-            </li>
-            <li class="p-2 text-sm">
-              <div class="user_comment_name">Devid Allie</div>
-              <div class="comment_text">I live on the other side of the island and I don't even...</div>
-            </li>
-            <li class="p-2 text-sm">
-              <div class="user_comment_name">Devid Allie</div>
-              <div class="comment_text">I live on the other side of the island and I don't even...</div>
-            </li>
+            {{/each}}
           </ul>
         </div>
       </li>

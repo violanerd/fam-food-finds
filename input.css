@@ -53,7 +53,6 @@
         @apply
         flex flex-col items-center mr-2 ml-2 mt-0  
         shadow-lg  overflow-hidden h-52 
-        cursor-pointer
     }
 }
 

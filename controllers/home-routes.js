@@ -44,16 +44,21 @@ router.get("/", async (req, res) => {
 // get single post
 router.get("/restaurant/view/:id", async (req, res) => {
   const restaurantId = req.params.id;
-  // res.render("restaurant-view");
-
   try{
-    const restaurantData = await Restaurant.findAll({
+    const restaurantData = await Restaurant.findOne({
       where: { id: restaurantId},
+      include: [
+        User,
+        {
+          model: Review,
+          include: [User],
+        },
+      ],
     });
 
-    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
-
-    res.render("restaurant-view", { restaurants });
+    // const restaurant = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+    const restaurant = restaurantData.get({ plain: true });
+    res.render("restaurant-view", { restaurant });
 
   } catch (err) {
     res.status(500).json(err);

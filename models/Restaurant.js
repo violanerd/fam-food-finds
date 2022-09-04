@@ -54,6 +54,10 @@ Restaurant.init(
         isURL: true,
       },
     },
+    restaurant_description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

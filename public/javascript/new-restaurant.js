@@ -4,12 +4,14 @@ const newFormHandler = async function (event) {
   
     const restaurant_name = document.querySelector('input[name="restaurant-name"]').value;
     const restaurant_url = document.querySelector('input[name="restaurant-url"]').value;
+    const restaurant_description = document.querySelector('textarea[name="restaurant-description"]').value;
   
     await fetch("/api/post", {
       method: "POST",
       body: JSON.stringify({
-        postTitle,
-        postContent,
+        restaurant_name,
+        restaurant_url,
+        restaurant_description,
       }),
       headers: { "Content-Type": "application/json" },
     });

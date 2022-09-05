@@ -1,7 +1,4 @@
 const listItemsEl = document.getElementById("list-items");
-const editItemsEl = document.getElementById("restaurant-container");
-
-
 
 const searchHandler = async function (event) {
   event.preventDefault();
@@ -13,20 +10,41 @@ const searchHandler = async function (event) {
   });
 };
 
-const focusHandler = async function (event) {
+const keyupHandler = async function (event) {
   event.preventDefault();
-  listItemsEl.classList.remove("hidden");
-  editItemsEl.classList.toggle("flex");
+  listItemsEl.classList.toggle("flex");
+  filter();
 }
 
 const focusoutHandler = async function (event) {
   event.preventDefault();
   listItemsEl.classList.add("hidden");
-  editItemsEl.classList.remove("hidden");
+}
+
+function filter() {
+  var FilterValue, input, ul, li, i;
+  input = document.getElementById("restaurant_name").value.toUpperCase();
+  FilterValue = input;
+  ul = document.getElementById("menuItemsSearch");
+  li = ul.getElementsByTagName("li");
+
+  for(i=0; i<li.length; i++) {
+    var a = li[i].getElementsByTagName("a")[0];
+    if(a.innerHTML.toUpperCase().indexOf(FilterValue) > -1) {
+      listItemsEl.classList.remove("hidden");
+      li[i].style.display = "block";
+      li[i].addEventListener("click", function(e){
+        console.log("hello")
+      });
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
 }
 
 const searchEl = document.querySelector("#restaurant_name");
-searchEl.addEventListener("focusin", focusHandler);
+searchEl.addEventListener("keyup", keyupHandler);
 searchEl.addEventListener("focusout", focusoutHandler);
 
 // document.querySelector("#restaurant_name").addEventListener("focus", inputHandler);

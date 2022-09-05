@@ -1,9 +1,4 @@
-<div class="">
-  <div class="flex flex-col items-center justify-center px-4 py-4 md:px-12 mt-20">
-    <div>
-      <ul>
-        <li>
-            <form class="m-0">
+      <form class="m-0 flex flex-col items-center justify-center px-4 py-4 md:px-12 mt-20">
               <div class="flex">
                 <div class="flex items-center justify-center">
                   <div class="flex border-2 rounded mb-0">
@@ -23,20 +18,16 @@
                   </div>
                 </div>
               </div>
-            </form>
-        </li>
-        <li class="hidden absolute h-48 overflow-hidden" id="list-items">
-            <div class="ml-0 flex flex-col container max-w-md mx-auto w-80 items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow ta">
-              <ul class="flex flex-col divide-y w-full bg-white"> 
-              {{#each restaurants as |restaurant|}}
-                <li class="flex flex-row">{{> listItems restaurant}}</li>
-              {{/each}}
-              </ul>
-            </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+      </form>
+{{!-- list items for search box --}}
+<div class="listItemSearch hidden" id="list-items">
+  <ul id="menuItemsSearch">
+    {{#each restaurants as |restaurant|}}
+      {{> listItems restaurant}}
+    {{/each}}
+  </ul>
+</div>
+
 {{!-- restaurant items --}}
   <div class="" id="restaurant-container">
     <div class="flex-1 max-w-4xl mx-auto p-10">
@@ -66,5 +57,4 @@
       </div>
     </div>
   </div>
-</div>
 <script src="/javascript/search-restaurant.js"></script>

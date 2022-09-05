@@ -700,20 +700,16 @@ font-family: 'Readex Pro', sans-serif;
   z-index: 10;
 }
 
-.-z-10{
-  z-index: -10;
-}
-
 .col-auto{
   grid-column: auto;
 }
 
-.float-none{
-  float: none;
-}
-
 .m-5{
   margin: 1.25rem;
+}
+
+.m-0{
+  margin: 0px;
 }
 
 .m-3{
@@ -724,18 +720,9 @@ font-family: 'Readex Pro', sans-serif;
   margin: 2.5rem;
 }
 
-.m-0{
-  margin: 0px;
-}
-
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
-}
-
-.-mx-60{
-  margin-left: -15rem;
-  margin-right: -15rem;
 }
 
 .mt-4{
@@ -778,6 +765,10 @@ font-family: 'Readex Pro', sans-serif;
   margin-top: 5rem;
 }
 
+.mb-0{
+  margin-bottom: 0px;
+}
+
 .ml-10{
   margin-left: 2.5rem;
 }
@@ -804,46 +795,6 @@ font-family: 'Readex Pro', sans-serif;
 
 .mb-5{
   margin-bottom: 1.25rem;
-}
-
-.mr-4{
-  margin-right: 1rem;
-}
-
-.-ml-10{
-  margin-left: -2.5rem;
-}
-
-.-ml-5{
-  margin-left: -1.25rem;
-}
-
-.-ml-7{
-  margin-left: -1.75rem;
-}
-
-.-ml-8{
-  margin-left: -2rem;
-}
-
-.-ml-4{
-  margin-left: -1rem;
-}
-
-.-ml-3{
-  margin-left: -0.75rem;
-}
-
-.-ml-1{
-  margin-left: -0.25rem;
-}
-
-.ml-0{
-  margin-left: 0px;
-}
-
-.mb-0{
-  margin-bottom: 0px;
 }
 
 .block{
@@ -884,34 +835,6 @@ font-family: 'Readex Pro', sans-serif;
 
 .h-screen{
   height: 100vh;
-}
-
-.h-12{
-  height: 3rem;
-}
-
-.h-8{
-  height: 2rem;
-}
-
-.h-24{
-  height: 6rem;
-}
-
-.h-80{
-  height: 20rem;
-}
-
-.h-60{
-  height: 15rem;
-}
-
-.h-52{
-  height: 13rem;
-}
-
-.h-48{
-  height: 12rem;
 }
 
 .w-full{
@@ -956,20 +879,12 @@ font-family: 'Readex Pro', sans-serif;
   width: 5rem;
 }
 
-.w-2{
-  width: 0.5rem;
-}
-
 .min-w-full{
   min-width: 100%;
 }
 
 .max-w-4xl{
   max-width: 56rem;
-}
-
-.max-w-md{
-  max-width: 28rem;
 }
 
 .flex-1{
@@ -986,12 +901,6 @@ font-family: 'Readex Pro', sans-serif;
 
 .cursor-pointer{
   cursor: pointer;
-}
-
-.select-none{
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 
 .appearance-none{
@@ -1066,22 +975,8 @@ font-family: 'Readex Pro', sans-serif;
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
-.divide-y > :not([hidden]) ~ :not([hidden]){
-  --tw-divide-y-reverse: 0;
-  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
-}
-
 .self-end{
   align-self: flex-end;
-}
-
-.overflow-hidden{
-  overflow: hidden;
-}
-
-.overflow-clip{
-  overflow: clip;
 }
 
 .rounded-md{
@@ -1154,11 +1049,6 @@ font-family: 'Readex Pro', sans-serif;
 .bg-darkBlue{
   --tw-bg-opacity: 1;
   background-color: hsl(228 39% 23% / var(--tw-bg-opacity));
-}
-
-.object-cover{
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .p-10{
@@ -1245,21 +1135,12 @@ font-family: 'Readex Pro', sans-serif;
   padding-bottom: 2rem;
 }
 
-.py-0{
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
 .pt-2{
   padding-top: 0.5rem;
 }
 
 .pb-5{
   padding-bottom: 1.25rem;
-}
-
-.pl-1{
-  padding-left: 0.25rem;
 }
 
 .text-left{
@@ -1311,10 +1192,6 @@ font-family: 'Readex Pro', sans-serif;
   font-weight: 700;
 }
 
-.font-medium{
-  font-weight: 500;
-}
-
 .tracking-wider{
   letter-spacing: 0.05em;
 }
@@ -1347,11 +1224,6 @@ font-family: 'Readex Pro', sans-serif;
 .text-cyan-800{
   --tw-text-opacity: 1;
   color: rgb(21 94 117 / var(--tw-text-opacity));
-}
-
-.text-gray-500{
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .underline{
@@ -1459,8 +1331,24 @@ font-family: 'Readex Pro', sans-serif;
   -webkit-box-orient: vertical;
 }
 
-.hideItems {
-  display: none;
+.listItemSearch ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: 233px;
+  width: 320px;
+  background: white;
+}
+
+.listItemSearch ul li {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.listItemSearch ul li:hover {
+  background: lightgray;
 }
 
 .hover\:bg-red-50:hover{
@@ -1498,11 +1386,6 @@ font-family: 'Readex Pro', sans-serif;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-gray-50:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
-
 .hover\:text-darkGrayishBlue:hover{
   --tw-text-opacity: 1;
   color: hsl(227 12% 61% / var(--tw-text-opacity));
@@ -1511,11 +1394,6 @@ font-family: 'Readex Pro', sans-serif;
 .hover\:text-cyan-50:hover{
   --tw-text-opacity: 1;
   color: rgb(236 254 255 / var(--tw-text-opacity));
-}
-
-.hover\:text-gray-800:hover{
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{
@@ -1560,28 +1438,6 @@ font-family: 'Readex Pro', sans-serif;
   display: block;
 }
 
-@media (prefers-color-scheme: dark){
-  .dark\:bg-gray-800{
-    --tw-bg-opacity: 1;
-    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-  }
-
-  .dark\:text-white{
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-200{
-    --tw-text-opacity: 1;
-    color: rgb(229 231 235 / var(--tw-text-opacity));
-  }
-
-  .dark\:hover\:text-white:hover{
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-}
-
 @media (min-width: 768px){
   .md\:col-span-2{
     grid-column: span 2 / span 2;
@@ -1616,4 +1472,3 @@ font-family: 'Readex Pro', sans-serif;
     padding-right: 3rem;
   }
 }
-

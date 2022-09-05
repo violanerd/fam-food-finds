@@ -111,7 +111,22 @@
     -webkit-box-orient: vertical;
   }
 
-.hideItems {
-    display: none;
+.listItemSearch ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 233px;
+    width: 320px;
+    background: white;
 }
 
+.listItemSearch ul li {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.listItemSearch ul li:hover {
+    background: lightgray;
+}

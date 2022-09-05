@@ -14,13 +14,15 @@ router.get("/", withAuth, async (req, res) => {
       where: { user_id: req.session.user_id},
       include: [{ model: User, attributes: ["username"] }],
     });
+   
     const restaurants = restaurantData.map((restaurant) =>
       restaurant.get({ plain: true })
     );
     res.render("post-restaurants", {
       layout: "dashboard",
       restaurants,
-      username: restaurants[0].user.username,
+      username: restaurants[0].user.username, 
+      
     });
   } catch (err) {
     res.status(500).json(err);
@@ -72,7 +74,7 @@ router.get("/restaurant/edit/:id", async (req, res) => {
 router.get("/review/edit/:id", async (req, res) => {
   try {
     const reviewData = await Review.findByPk(req.params.id);
-
+    
     if (reviewData) {
       const review = reviewData.get({ plain: true });
       res.render("edit-review", {

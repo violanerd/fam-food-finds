@@ -58,8 +58,7 @@ router.get("/restaurant/view/:id", async (req, res) => {
 
     // const restaurant = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
     const restaurant = restaurantData.get({ plain: true });
-    res.render("restaurant-view", { restaurant });
-
+    res.render("restaurant-view", { restaurant});
   } catch (err) {
     res.status(500).json(err);
   }

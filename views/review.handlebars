@@ -5,21 +5,15 @@
         <div class="">
           <div class="restaurant_name">
             <p>{{ reviewPost.restaurant_name}}</p>
-               <div id="overall-rating" class="stars"></div>
+               <div id="overall-rating" class="stars">
+                
+               </div>
           </div>
+                <div class="badge mt-4">Rating...{{avgRating}}</div> 
           <div class="review_and_comment">
-                <div class="badge mt-4">Rating...</div> 
             <div class="review_rate m-5 grid grid-cols-2 items-center justify-center">
                 {{> stars stars}}
-                {{!-- <div class="">
-                  <ul class="flex items-center">
-                    <li><img src="/images/star.svg" class="w-10 h-10"></li>
-                    <li><img src="/images/star.svg" class="w-10 h-10"></li>
-                    <li><img src="/images/star.svg" class="w-10 h-10"></li>
-                    <li><img src="/images/star-half-fill.svg" class="w-10 h-10"></li>
-                    <li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li>
-                  </ul>
-                </div>   --}}
+                </div>  
             </div>
             <div class="bg-white shadow-md p-5">
               <div class="mt-5">

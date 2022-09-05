@@ -1,4 +1,6 @@
 const router = require("express").Router();
+// const sequelize = require("sequelize");
+// const Op = sequelize.Op;
 const {
   Category,
   Restaurant,
@@ -9,43 +11,77 @@ const {
 
 
 // Get All Restaurants
-router.get("/", (req, res) => {
-  console.log("======================");
-  Restaurant.findAll({
-    attributes: ["id", "restaurant_name", "restaurant_url", "user_id"],
-    order: [["created_at", "DESC"]],
-    include: [
-      {
-        model: Review,
-        attributes: [
-          "id",
-          "review_text",
-          "rating",
-          "user_id",
-          "restaurant_id",
-          "created_at",
-        ],
-        include: {
+router.get("/", async (req, res) => {
+  try {
+    const restaurantData = await Restaurant.findAll({
+      attributes: ["id", "restaurant_name", "restaurant_url", "user_id"],
+      order: [["created_at", "DESC"]],
+      include: [
+        {
+          model: Review,
+          attributes: [
+            "id",
+            "review_text",
+            "rating",
+            "user_id",
+            "restaurant_id",
+            "created_at",
+          ],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
+        {
           model: User,
           attributes: ["username"],
         },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbPostData) => res.json(dbPostData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
+      ],
     });
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+    console.log(restaurants)
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+// router.get("/", (req, res) => {
+//   Restaurant.findAll({
+//     attributes: ["id", "restaurant_name", "restaurant_url", "user_id"],
+//     order: [["created_at", "DESC"]],
+//     include: [
+//       {
+//         model: Review,
+//         attributes: [
+//           "id",
+//           "review_text",
+//           "rating",
+//           "user_id",
+//           "restaurant_id",
+//           "created_at",
+//         ],
+//         include: {
+//           model: User,
+//           attributes: ["username"],
+//         },
+//       },
+//       {
+//         model: User,
+//         attributes: ["username"],
+//       },
+//     ],
+//   })
+//     .then((dbPostData) => res.json(dbPostData))
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // Get a Restaurant
 router.get("/:id", (req, res) => {
-  Post.findOne({
+  Restaurant.findOne({
     where: {
       id: req.params.id,
     },
@@ -139,5 +175,27 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// // search restaurant by restaurant name when click on box search...
+// router.get("/name", async (req, res) => {
+//   try {
+//     const restaurantData = await Restaurant.findAll({
+//       attributes: ["restaurant_name"],
+//     });
+//     if (restaurantData) {
+//       const restaurants = restaurantData.get({ plain: true });
+//       console.log(restaurants);
+//       // res.render("edit-restaurant", {
+//       //   layout: "dashboard",
+//       //   restaurant,
+//       //   categories,
+//       // });
+//     } else {
+//       res.status(404).end();
+//     }
+//   } catch (err) {
+//     res.redirect("login");
+//   }
+// });
 
 module.exports = router;

@@ -700,6 +700,10 @@ font-family: 'Readex Pro', sans-serif;
   z-index: 10;
 }
 
+.-z-10{
+  z-index: -10;
+}
+
 .col-auto{
   grid-column: auto;
 }
@@ -1045,6 +1049,10 @@ font-family: 'Readex Pro', sans-serif;
 
 .self-end{
   align-self: flex-end;
+}
+
+.overflow-clip{
+  overflow: clip;
 }
 
 .rounded-md{

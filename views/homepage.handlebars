@@ -25,9 +25,9 @@
               </div>
             </form>
         </li>
-        <li class="hidden h-8" id="list-items">
+        <li class="hidden absolute" id="list-items">
             <div class="ml-0 flex flex-col container max-w-md mx-auto w-80 items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow ta">
-              <ul class="flex flex-col divide-y w-full"> 
+              <ul class="flex flex-col divide-y w-full bg-white"> 
               {{#each restaurants as |restaurant|}}
                 <li class="flex flex-row">{{> listItems restaurant}}</li>
               {{/each}}

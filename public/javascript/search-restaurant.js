@@ -16,7 +16,7 @@ const searchHandler = async function (event) {
 const focusHandler = async function (event) {
   event.preventDefault();
   listItemsEl.classList.remove("hidden");
-  editItemsEl.classList.add("hidden");
+  editItemsEl.classList.toggle("flex");
 }
 
 const focusoutHandler = async function (event) {

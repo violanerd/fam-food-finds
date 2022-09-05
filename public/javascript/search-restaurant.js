@@ -33,9 +33,6 @@ function filter() {
     if(a.innerHTML.toUpperCase().indexOf(FilterValue) > -1) {
       listItemsEl.classList.remove("hidden");
       li[i].style.display = "block";
-      li[i].addEventListener("click", function(e){
-        console.log("hello")
-      });
     } else {
       li[i].style.display = "none";
     }
@@ -43,9 +40,17 @@ function filter() {
 
 }
 
+function clickHandler(event) {
+  let restaurant = event.target.getAttribute("href")
+  window.location.replace(restaurant);  
+}
+
 const searchEl = document.querySelector("#restaurant_name");
 searchEl.addEventListener("keyup", keyupHandler);
 searchEl.addEventListener("focusout", focusoutHandler);
 
+
+
+document.querySelector("#menuItemsSearch").addEventListener("mousedown" ,clickHandler)
 // document.querySelector("#restaurant_name").addEventListener("focus", inputHandler);
 document.querySelector("#btn-search").addEventListener("click", searchHandler);

@@ -118,15 +118,16 @@
     margin-top: -10px;
     margin-left: 233px;
     width: 320px;
-    background: white;
+    background: lightgray;
+    opacity: 90%;
 }
 
 .listItemSearch ul li {
-    margin-bottom: 10px;
+    margin: 10;
     padding: 10px 15px;
     cursor: pointer;
 }
 
 .listItemSearch ul li:hover {
-    background: lightgray;
+    background: white;
 }

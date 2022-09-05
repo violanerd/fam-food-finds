@@ -41,7 +41,14 @@ function filter() {
 }
 
 function clickHandler(event) {
-  let restaurant = event.target.getAttribute("href")
+  let restaurant;
+  if (event.target.tagName==="A"){
+    restaurant = event.target.getAttribute("href")
+  }
+  if (event.target.tagName ==="LI"){
+    restaurant = event.target.getAttribute("data-href")
+  }
+  
   window.location.replace(restaurant);  
 }
 

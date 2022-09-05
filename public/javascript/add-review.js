@@ -1,14 +1,14 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const post_url = document.querySelector('input[name="post-url"]').value;
+  const rating = document.querySelector('input[name="rating"]').value;
+  const review_text = document.querySelector('input[name="review-text"]').value;
 
-  const response = await fetch(`/api/posts`, {
+  const response = await fetch(`/api/review`, {
     method: "POST",
     body: JSON.stringify({
-      title,
-      post_url,
+      rating,
+      review_text,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -23,5 +23,5 @@ async function newFormHandler(event) {
 }
 
 document
-  .querySelector(".new-post-form")
+  .querySelector(".new-review-form")
   .addEventListener("submit", newFormHandler);

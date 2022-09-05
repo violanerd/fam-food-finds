@@ -5,10 +5,13 @@
         <div class="">
           <div class="restaurant_name">
             <p>{{ reviewPost.restaurant_name}}</p>
+               <div id="overall-rating" class="stars"></div>
           </div>
           <div class="review_and_comment">
+                <div class="badge mt-4">Rating...</div> 
             <div class="review_rate m-5 grid grid-cols-2 items-center justify-center">
-                <div class="">
+                {{> stars stars}}
+                {{!-- <div class="">
                   <ul class="flex items-center">
                     <li><img src="/images/star.svg" class="w-10 h-10"></li>
                     <li><img src="/images/star.svg" class="w-10 h-10"></li>
@@ -16,20 +19,19 @@
                     <li><img src="/images/star-half-fill.svg" class="w-10 h-10"></li>
                     <li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li>
                   </ul>
-                </div>  
-                <div class="badge">Rating...</div> 
+                </div>   --}}
             </div>
             <div class="bg-white shadow-md p-5">
               <div class="mt-5">
-                <div class="form">
+                <form class="form">
                   <div class="flex-auto w-full md-1 text-xs space-y-2">
                     <label class=" text-neutral-600 py-2">Add a Review</label>
                     <textarea class="h-28 w-full appearance-none block bg-gray-50 text-gray-600 border e"></textarea>
                   </div>
-                </div>
+                  <button type="submit" class="mt-2 m-3 bg-gray-600 px-5 py-2 text-sm shadow-md tracking-wider text-white rounded-full hover:bg-darkGrayishBlue hover:shadow-lg focus:outline-none submit-review">Post Review</button>
+                </form>
               </div>
             </div>
-            <button class="mt-2 m-3 bg-gray-600 px-5 py-2 text-sm shadow-md tracking-wider text-white rounded-full hover:bg-darkGrayishBlue hover:shadow-lg focus:outline-none">Post Review</button>
         </div>
       </li>
       <li class="bg-white rounded-lg shadow-xl">
@@ -39,6 +41,7 @@
             <li class="p-2 text-sm">
               <div class="user_comment_name">{{user.username}}</div>
               <div class="comment_text">{{review_text}}</div>
+              <div class="rating">{{rating}}</div>
             </li>
             {{/each}}
           </ul>
@@ -47,3 +50,5 @@
     </ul>
   </div>
 </div>
+
+    <script src="/javascript/star-ratings.js"></script>

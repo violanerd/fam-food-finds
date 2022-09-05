@@ -1,1 +1,38 @@
-/*  */
+@import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
+
+#stars {
+  display: flex;
+  color: #333;
+  font-size: 15px;
+}
+
+#stars.disabled {
+  pointer-events: none;
+}
+
+#stars a {
+  font-size: 40px;
+  transition: 0.3 all;
+  cursor: pointer;
+  padding: 3px;
+}
+
+#stars:hover a {
+  opacity: 100%;
+  color: #f1c40f;
+}
+
+#stars a:hover {
+  opacity: 100%;
+  color: #f1c40f;
+}
+
+#stars a:hover ~ a {
+  opacity: 50%;
+  color: #333;
+}
+
+#stars a.active {
+  opacity: 100%;
+  color: #f1c40f;
+}

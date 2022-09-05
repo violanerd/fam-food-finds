@@ -11,7 +11,7 @@ router.get("/", withAuth, async (req, res) => {
   
   try {
     const restaurantData = await Restaurant.findAll({
-      where: { user_id: req.session.user_id},
+      where: { user_id: 1},//req.session.user_id},
       include: [{ model: User, attributes: ["username"] }],
     });
    
@@ -24,6 +24,7 @@ router.get("/", withAuth, async (req, res) => {
       username: restaurants[0].user.username, 
       
     });
+  
   } catch (err) {
     res.status(500).json(err);
   }

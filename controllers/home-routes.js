@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Category, Restaurant, Review } = require("../models");
+const { User, Category, Restaurant, Review, RestaurantCategory } = require("../models");
 
 // login form
 router.get("/login", (req, res) => {
@@ -34,12 +34,13 @@ router.get("/", async (req, res) => {
       category.get({ plain: true })
     );
     res.render("homepage", { restaurants, categories });
-    // res.status(200).json(restaurantData);
+     //res.status(200).json(restaurantData);
     // restaurants
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 // get single post
 router.get("/restaurant/view/:id", async (req, res) => {

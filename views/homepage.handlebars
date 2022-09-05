@@ -1,34 +1,49 @@
-<div>
-  <div class="flex items-center justify-center px-4 py-4 md:px-12 mt-20">
-    <form>
-      <div class="flex">
-        <div class="flex items-center justify-center">
-          <div class="flex border-2 rounded">
-            <input type="text" class="px-4 py-2 w-80" placeholder="Search..." />
-            <button class="flex items-center justify-center px-4 border-l">
-              <svg
-                class="hover:text-darkGrayishBlue w-6 h-6 text-gray-600"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
+<div class="">
+  <div class="flex flex-col items-center justify-center px-4 py-4 md:px-12 mt-20">
+    <div>
+      <ul>
+        <li>
+            <form class="m-0">
+              <div class="flex">
+                <div class="flex items-center justify-center">
+                  <div class="flex border-2 rounded mb-0">
+                    <input type="text" class="px-4 py-2 w-80" placeholder="Search by restaurant name..." id="restaurant_name" />
+                    <button class="flex items-center justify-center px-4 border-l" id="btn-search">
+                      <svg
+                        class="hover:text-darkGrayishBlue w-6 h-6 text-gray-600"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </li>
+        <li class="hidden h-8" id="list-items">
+            <div class="ml-0 flex flex-col container max-w-md mx-auto w-80 items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow ta">
+              <ul class="flex flex-col divide-y w-full"> 
+              {{#each restaurants as |restaurant|}}
+                <li class="flex flex-row">{{> listItems restaurant}}</li>
+              {{/each}}
+              </ul>
+            </div>
+        </li>
+      </ul>
+    </div>
   </div>
 {{!-- restaurant items --}}
-  <div id="">
+  <div class="" id="restaurant-container">
     <div class="flex-1 max-w-4xl mx-auto p-10">
 
       <div class=" flex items-end justify-end gap-4">
         <p>Search by:</p>
-                    <button class="relative flex justify-start items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 group">
+                <button class="relative flex justify-start items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 group">
                   <p class="px-4">Categories</p>
                   <span class="border-l hover:bg-gray-100">
                     <i class='fas fa-angle-down hover:text-darkGrayishBlue w-6 h-6 text-gray-600'></i>
@@ -42,11 +57,14 @@
                   </div>
                 </button>
       </div>
-      <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8 mt-3">  
+      <div class="" id="restaurant-container">
+        <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8 mt-3">  
         {{#each restaurants as |restaurant|}}
           <li class="">{{> restaurantItem restaurant}}</li>
         {{/each}}
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
+<script src="/javascript/search-restaurant.js"></script>

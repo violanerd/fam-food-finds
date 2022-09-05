@@ -111,3 +111,7 @@
     -webkit-box-orient: vertical;
   }
 
+.hideItems {
+    display: none;
+}
+

@@ -7,49 +7,6 @@ const {
   User,
 } = require("../../models");
 
-// filter by category
-// GET /api/restaurant/:category
-// router.get("/:category", async (req, res) => {
-//   // this code allows for both "Italian" and "Burger-Joint" to be passed in
-//   const categoryName = req.params.category.replace("-", " ");
-
-//   //find category id
-//   try {
-//     const category_id = await Category.findOne({
-//       where: { category_name: categoryName },
-//       attributes: ["id"],
-//     });
-
-//     const response = await RestaurantCategory.findAll({
-//       where: { category_id: category_id.id },
-//       attributes: ["restaurant_id"],
-//       include: [{ model: Restaurant }],
-//     });
-//     const categeriesData = await Category.findAll({});
-//     const restaurants = response.map((restaurant) => restaurant.get({ plain: true }));
-//     const categories = categeriesData.map((category) => category.get({ plain: true}));
-//     res.render("homeage", {restaurants, categories})
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// GET restaurant by restaurant id api/restaurant/1
-// DOESN'T work with category route above
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const restaurantData = await Restaurant.findOne({
-//       where: {id: req.params.id}
-//     })
-//     if (!restaurantData){
-//       res.status(400).json({message: 'No restaurant found'})
-//       return;
-//     }
-//     res.status(200).json(restaurantData)
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// })
 
 // Get All Restaurants
 router.get("/", (req, res) => {

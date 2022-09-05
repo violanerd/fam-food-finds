@@ -9,22 +9,16 @@
                 
                </div>
           </div>
-                <div class="badge mt-4">Rating...{{avgRating}}</div> 
-          <div class="review_and_comment">
-            <div class="review_rate m-5 grid grid-cols-2 items-center justify-center">
-                {{> stars stars}}
-                </div>  
-            </div>
-            <div class="bg-white shadow-md p-5">
-              <div class="mt-5">
+                <div class="badge mt-4 ml-2">Rating...{{avgRating}}</div> 
+          <div class="bg-white shadow-md p-5 review_and_comment">
                 <form class="form">
-                  <div class="flex-auto w-full md-1 text-xs space-y-2">
+                {{> stars stars}}
+                  <div class="flex-auto w-full md-1 text-xs space-y-2 mt-4">
                     <label class=" text-neutral-600 py-2">Add a Review</label>
-                    <textarea class="h-28 w-full appearance-none block bg-gray-50 text-gray-600 border e"></textarea>
+                    <textarea name="review-text" class="h-28 w-full appearance-none block bg-gray-50 text-gray-600 border e"></textarea>
                   </div>
                   <button type="submit" class="mt-2 m-3 bg-gray-600 px-5 py-2 text-sm shadow-md tracking-wider text-white rounded-full hover:bg-darkGrayishBlue hover:shadow-lg focus:outline-none submit-review">Post Review</button>
                 </form>
-              </div>
             </div>
         </div>
       </li>
@@ -46,3 +40,4 @@
 </div>
 
     <script src="/javascript/star-ratings.js"></script>
+    <script src="/javascript/add-review.js"></script>

@@ -10,11 +10,13 @@ stars.forEach((star, clickedIndex) => {
     stars.forEach((otherStar, otherIndex) => {
       if (otherIndex <= clickedIndex) {
         otherStar.classList.add("active");
+        ratingReview = clickedIndex + 1;
       }
     });
     console.log(`star of index ${clickedIndex + 1} was clicked`);
-    // POST to backend your star
+    console.log(`star of index ${ratingReview} was clicked`);
   });
+  // POST to backend your star
 });
 
 //dynamically pull in average of raatings

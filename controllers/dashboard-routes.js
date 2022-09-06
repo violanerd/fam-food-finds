@@ -7,8 +7,7 @@ const withAuth = require("../utils/auth");
 // /dashboard/
 router.get("/", withAuth, async (req, res) => {
   //withAuth add
-  
-  
+    
   try {
     const restaurantData = await Restaurant.findAll({
       where: { user_id: req.session.user_id},
@@ -33,7 +32,7 @@ router.get("/", withAuth, async (req, res) => {
 // /dashboard/new
 // CREATE a restaurant - render new page
 // load new create form for new post when click create new
-router.get("/restaurant/new", async (req, res) => {
+router.get("/restaurant/new", withAuth, async (req, res) => {
   const categeriesData = await Category.findAll({});
   const categories = categeriesData.map((category) =>
     category.get({ plain: true })
@@ -46,7 +45,7 @@ router.get("/restaurant/new", async (req, res) => {
 
 // /dashboard/edit
 // get one restaurant to edit
-router.get("/edit/:id", async (req, res) => {});
+router.get("/edit/:id", withAuth, async (req, res) => {});
 
 // it will load to edit form when click on post itself.
 router.get("/restaurant/edit/:id", async (req, res) => {
@@ -72,15 +71,21 @@ router.get("/restaurant/edit/:id", async (req, res) => {
 });
 
 // comment will load to edit form when click on post itself.
-router.get("/review/edit/:id", async (req, res) => {
+router.get("/review/edit/:id", withAuth, async (req, res) => {
   try {
     const reviewData = await Review.findByPk(req.params.id);
-    
     if (reviewData) {
       const review = reviewData.get({ plain: true });
+      const restaurantData = await Restaurant.findOne({
+        where:{id: review.restaurant_id}
+      });
+      const restaurant = restaurantData.get({ plain: true });
+
+      console.log(review)
       res.render("edit-review", {
         layout: "dashboard",
         review,
+        restaurant
       });
     } else {
       res.status(404).end();

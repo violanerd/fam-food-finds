@@ -4,7 +4,7 @@
       <li class=" bg-white rounded-lg shadow border">
         <div class="">
           <div class="restaurant_name">
-            <p>Fung Wong</p>
+            <p>{{restaurant.restaurant_name}}</p>
           </div>
           <div class="review_and_comment">
             <div class="review_rate m-5 grid grid-cols-2 items-center justify-center">
@@ -17,14 +17,16 @@
                     <li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li>
                   </ul>
                 </div>  
-                <div class="badge">Rating...</div> 
+                <div class="badge ">{{review.rating}}</div> 
             </div>
+             <input type="hidden" name="comment_id" value="{{review.id}}"/>
+             <input type="hidden" name="post_id" value="{{review.restaurant_id}}"/>
             <div class="bg-white shadow-md p-5">
               <div class="mt-5">
                 <div class="form">
                   <div class="flex-auto w-full md-1 text-xs space-y-2">
-                    <label class=" text-neutral-600 py-2">Comment</label>
-                    <textarea class="h-28 w-full appearance-none block bg-gray-50 text-gray-600 border e"></textarea>
+                    <label class=" text-neutral-600 py-2 text-xl">Comment</label>
+                    <textarea class="h-28 w-full text-lg appearance-none block bg-gray-50 text-gray-600 border p-3">{{review.review_text}}</textarea>
                   </div>
                 </div>
               </div>

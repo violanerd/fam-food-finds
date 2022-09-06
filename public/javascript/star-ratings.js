@@ -20,22 +20,62 @@ stars.forEach((star, clickedIndex) => {
 });
 
 //dynamically pull in average of raatings
-let avgRating = 4;
 
-const starSelect = function () {
-  if (avgRating === 1) {
-    overallRating.outerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
-  } else if (avgRating === 2) {
-    overallRating.outerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
-  } else if (avgRating === 3) {
-    overallRating.outerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
-  } else if (avgRating === 4) {
-    overallRating.outerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
-  } else if (avgRating === 5) {
-    overallRating.outerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li></ul>`;
+const starRating = function () {
+  const overallRating = document.querySelector("#overall-rating");
+  const avgRating = document.querySelector(".avg-rating");
+  console.log(avgRating);
+  console.log(overallRating);
+  if (avgRating.innerHTML === "1") {
+    overallRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (avgRating.innerHTML === "2") {
+    overallRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (avgRating.innerHTML === "3") {
+    overallRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (avgRating.innerHTML === "4") {
+    overallRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (avgRating.innerHTML === "5") {
+    overallRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li></ul>`;
   } else {
-    overallRating.outerHTML = `No reviews collected yet`;
+    avgRating.innerHTML = `No reviews collected yet`;
   }
+  avgRating.classList.add("hide");
 };
 
-starSelect();
+window.addEventListener("load", function () {
+  let starRating = document.querySelector(".user-rating");
+  let testVariable = starRating.innerHTML;
+  if (testVariable === "1") {
+    starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (testVariable === "2") {
+    starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (testVariable === "3") {
+    starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (testVariable === "4") {
+    starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+  } else if (testVariable === "5") {
+    starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li></ul>`;
+  } else {
+    starRating.innerHTML = `N/A`;
+  }
+});
+
+// window.addEventListener("load", function () {
+//   let starRating = document.querySelector(".average-rating");
+//   let testVariable = starRating.innerHTML;
+//   if (testVariable === "1") {
+//     starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+//   } else if (testVariable === "2") {
+//     starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+//   } else if (testVariable === "3") {
+//     starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+//   } else if (testVariable === "4") {
+//     starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star-no-fill.svg" class="w-10 h-10"></li></ul>`;
+//   } else if (testVariable === "5") {
+//     starRating.innerHTML = `<ul class="flex items-center"><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li><li><img src="/images/star.svg" class="w-10 h-10"></li></ul>`;
+//   } else {
+//     starRating.innerHTML = `N/A`;
+//   }
+// });
+
+starRating();

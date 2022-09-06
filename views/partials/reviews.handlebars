@@ -6,7 +6,7 @@
         <div><a
             href="/dashboard/review/edit/{{id}}"
             class="text-xl font-bold text-cyan-800 underline"
-          >{{user.username}}</a><span> on {{createdAt}}</span></div>
+          >{{user.username}}</a><span> on {{format_date createdAt}}</span></div>
       </div>
       <div class="flex flex-col md:flex-row md:gap-4 text-right ml-5 mb-5">
         {{review_text}}

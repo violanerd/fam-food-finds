@@ -18,4 +18,5 @@ async function selectCategoryHandler(event){
     let categoryName = category.trim().replace(" ", "-")
     //console.log(categoryName)
     window.location.replace(`/category/${categoryName}`);
+
 }

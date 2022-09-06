@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
     const categories = categeriesData.map((category) =>
       category.get({ plain: true })
     );
-    res.render("homepage", { restaurants, categories });
+    res.render("homepage", { restaurants, categories, loggedIn: req.session.loggedIn });
      //res.status(200).json(restaurantData);
     // restaurants
   } catch (err) {
@@ -59,7 +59,7 @@ router.get("/restaurant/view/:id", async (req, res) => {
 
     // const restaurant = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
     const restaurant = restaurantData.get({ plain: true });
-    res.render("restaurant-view", { restaurant});
+    res.render("restaurant-view", { restaurant, loggedIn: req.session.loggedIn,});
   } catch (err) {
     res.status(500).json(err);
   }

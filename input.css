@@ -151,6 +151,10 @@
     background: white;
 }
 
+*:focus {
+    outline: none;
+}
+
 @media only screen and (max-width: 769px) {
     /* For desktop: */
     .listItemSearch ul {

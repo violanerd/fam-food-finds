@@ -6,7 +6,8 @@ const newFormHandler = async function (event) {
     const restaurant_url = document.querySelector('input[name="restaurant-url"]').value;
     const restaurant_description = document.querySelector('textarea[name="restaurant-description"]').value;
   
-    await fetch("/api/post", {
+    if (restaurant_name, restaurant_url, restaurant_description){
+      const response = await fetch("/api/restaurant", {
       method: "POST",
       body: JSON.stringify({
         restaurant_name,
@@ -15,9 +16,17 @@ const newFormHandler = async function (event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
-  
-    document.location.replace("/dashboard");
-  };
+    if (response.ok){
+      alert("Your restaurant has been created!")
+     document.location.replace("/dashboard");
+    } else {
+      alert(response.statusText)
+    }
+  } else {
+    alert("Please make sure all fields are filled in")
+  }
+};
+
   
   
   document

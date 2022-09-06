@@ -130,6 +130,7 @@ router.post("/", (req, res) => {
   Restaurant.create({
     restaurant_name: req.body.restaurant_name,
     restaurant_url: req.body.restaurant_url,
+    restaurant_description: req.body.restaurant_description,
     user_id: req.session.user_id,
   })
     .then((dbRestaurantData) => res.json(dbRestaurantData))

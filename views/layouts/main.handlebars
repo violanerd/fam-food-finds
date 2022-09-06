@@ -12,25 +12,24 @@
 
     <title>Fam Food Finds</title>
   </head>
-  <body class="h-screen">
+  <body class="background-image">
     <header>
       {{! Navbar }}
-      <nav class="relative w-full p-6 shadow-xl">
+      <nav class="nav-container">
         {{! Flex container }}
         <div class="flex items-center justify-between">
           {{! Logo }}
-          <div class="pt-2">
-            <img src="/images/logo.png" alt="" />
+          <div class="pt-2 w-48">
+            <img src="/images/logo.png" alt="" class=" shadow-md" />
           </div>
           {{! menu Items }}
           <div class="hidden md:flex space-x-6">
-            <a href="/" class="hover:text-darkGrayishBlue">Home</a>
+            <a href="/" class="menu_red50">Home</a>
             <a
               href="/dashboard"
-              class="hover:text-darkGrayishBlue"
-            >Dashboard</a>
-            <a href="/login" class="hover:text-darkGrayishBlue">Login</a>
-            <a href="/signup" class="hover:text-darkGrayishBlue">Signup</a>
+              class="menu_red50">Dashboard</a>
+            <a href="/login" class="menu_red50">Login</a>
+            <a href="/signup" class="menu_red50">Signup</a>
           </div>
 
           {{! Humberger Icon }}
@@ -48,23 +47,21 @@
         <div class="md:hidden">
           <div
             id="menu"
-            class="absolute flex-col z-10 items-center self-end hidden py-8 mt-7 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+            class="absolute flex-col z-10 items-center self-end hidden py-5 mt-7 space-y-6 font-bold bg-red-100 sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
           >
-            <a href="/" class="hover:text-darkGrayishBlue">Home</a>
+            <a href="/" class="menu_red50_md">Home</a>
             <a
               href="/dashboard"
-              class="hover:text-darkGrayishBlue"
+              class="menu_red50_md"
             >Dashboard</a>
-            <a href="/login" class="hover:text-darkGrayishBlue">Login</a>
-            <a href="/signup" class="hover:text-darkGrayishBlue">Signup</a>
+            <a href="/login" class="menu_red50_md">Login</a>
+            <a href="/signup" class="menu_red50_md">Signup</a>
           </div>
         </div>
       </nav>
       {{! end Navvar }}
     </header>
     {{! Hero Section }}
-    <section id="hero">
-    </section>
     <main class="">
       {{{body}}}
     </main>

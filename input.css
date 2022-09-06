@@ -52,7 +52,26 @@
     .writer_review {
         @apply
         flex flex-col items-center mr-2 ml-2 mt-0  
-        shadow-lg  overflow-hidden h-52 
+        shadow-lg  overflow-hidden h-52 bg-gray-50
+    }
+    .nav-container {
+        @apply
+        relative w-full p-3 shadow-md shadow-red-50 bg-red-100
+    }
+    .menu_red50 {
+        @apply
+        hover:bg-red-50 bg-gray-50 shadow-xl p-3  hover:font-semibold rounded-full
+    }
+
+    .menu_red50_md {
+        @apply
+        hover:bg-red-50 shadow-xl p-3
+    }
+
+    .background-image {
+        @apply
+        w-full h-screen bg-[url("/images/pexels-polina-chistyakova-12290139.jpg")] 
+        bg-cover bg-center bg-no-repeat
     }
 }
 
@@ -115,8 +134,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    margin-top: -10px;
-    margin-left: 233px;
+    margin-top: -16px;
+    margin-left: 50px;
     width: 320px;
     background: lightgray;
     opacity: 90%;
@@ -131,3 +150,10 @@
 .listItemSearch ul li:hover {
     background: white;
 }
+
+@media only screen and (max-width: 769px) {
+    /* For desktop: */
+    .listItemSearch ul {
+        margin-left: 18px;
+    }
+  }

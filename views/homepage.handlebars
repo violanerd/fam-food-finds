@@ -1,9 +1,11 @@
-      <form class="m-0 flex flex-col items-center justify-center px-4 py-4 md:px-12 mt-20" autocomplete="off">
+<div class="m-0 flex flex-col items-center justify-center px-4 py-4 md:px-12 mt-20">
+  <div>
+            <form class="m-0 flex flex-col items-center justify-center px-4 py-4 md:px-12 mt-20" autocomplete="off">
               <div class="flex">
                 <div class="flex items-center justify-center">
                   <div class="flex border-2 rounded mb-0">
                     <input type="text" class="px-4 py-2 w-80" placeholder="Search by restaurant name..." id="restaurant_name" />
-                    <button class="flex items-center justify-center px-4 border-l" id="btn-search">
+                    <button class="flex items-center justify-center px-4 border-l hover:bg-red-50 bg-gray-50 shadow-xl p-3" id="btn-search">
                       <svg
                         class="hover:text-darkGrayishBlue w-6 h-6 text-gray-600"
                         fill="currentColor"
@@ -19,22 +21,24 @@
                 </div>
               </div>
       </form>
-{{!-- list items for search box --}}
-<div class="listItemSearch hidden" id="list-items">
-  <ul id="menuItemsSearch">
-    {{#each restaurants as |restaurant|}}
-      {{> listItems restaurant}}
-    {{/each}}
-  </ul>
+        {{!-- list items for search box --}}
+  <div class="listItemSearch hidden" id="list-items">
+    <ul id="menuItemsSearch">
+      {{#each restaurants as |restaurant|}}
+        {{> listItems restaurant}}
+      {{/each}}
+    </ul>
+  </div>
 </div>
+  </div>
 
 {{!-- restaurant items --}}
   <div class="" id="restaurant-container">
     <div class="flex-1 max-w-4xl mx-auto p-10">
 
-      <div class=" flex items-end justify-end gap-4">
-        <p>Search by:</p>
-                <button class="relative flex justify-start items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 group">
+      <div class=" flex align-middle items-center justify-center gap-2 bg-gray-100 p-2 w-64 mr-0 justify-items-end">
+        <p class="shadow-md  w-50 bg-gray-50 pl-2 pr-2">Search by:</p>
+                <button class="relative flex justify-start items-center focus:outline-none shadow text-gray-600 border rounded focus:ring ring-gray-200 bg-gray-50  group" id="btn-categories">
                   <p class="px-4">Categories</p>
                   <span class="border-l hover:bg-gray-100">
                     <i class='fas fa-angle-down hover:text-darkGrayishBlue w-6 h-6 text-gray-600'></i>

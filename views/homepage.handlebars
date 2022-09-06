@@ -35,6 +35,7 @@
 {{!-- restaurant items --}}
   <div class="" id="restaurant-container">
     <div class="flex-1 max-w-4xl mx-auto p-10">
+      {{!-- dropdown list Categories --}}
       <div class=" flex align-middle items-center justify-center gap-2 bg-gray-100 p-2 w-72 mr-0 justify-items-end">
         <p class="shadow-md  w-50 bg-gray-50 pl-2 pr-2 pt-2 pb-2">Search by:</p>
         <div class="dropdown inline-block relative">
@@ -49,6 +50,7 @@
           </ul>
         </div>
       </div>
+      {{!-- list restaurants --}}
       <div class="" id="restaurant-container">
         <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8 mt-3">  
         {{#each restaurants as |restaurant|}}
@@ -59,4 +61,3 @@
     </div>
   </div>
 <script src="/javascript/search-restaurant.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

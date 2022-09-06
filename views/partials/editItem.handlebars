@@ -18,19 +18,19 @@
             Rating 
         </div>
    </div>
-  <div class="flex flex-col md:flex-row md:gap-4 text-right m-5 justify-end" id="btn-grud">
-    <a href="/restaurant/view/{{id}}"><div class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-view">
+  <ul class="flex flex-col md:flex-row md:gap-4 text-right m-5 justify-end" id="btn-grud">
+    <a href="/restaurant/view/{{id}}"><li class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-view{{id}}">
       View
-    </div></a>
-    <a href="/dashboard/restaurant/edit/{{id}}"><div class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-edit">
+    </li></a>
+    <a href="/dashboard/restaurant/edit/{{id}}"><li class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-edit{{id}}">
       Edit
-    </div></a>
-    <div data-id="{{id}}" class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-delete">
+    </li></a>
+    <!-- <li data-id="{{id}}" class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-delete{{id}}">
       Delete
-    </div>
+    </li> -->
     <!-- <a id="delete-restaurant" ><div data-id="{{id}}" class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-delete">
       Delete
     </div></a> -->
-  </div>
+  </ul>
   <script src="/javascript/dashboard.js"></script>
 </div>

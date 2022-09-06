@@ -1,4 +1,4 @@
-const newFormHandler = async function (event) {
+const editFormHandler = async function (event) {
   event.preventDefault();
 
   const restaurant_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
@@ -28,10 +28,29 @@ const newFormHandler = async function (event) {
   }
 };
 
+// delete post
+const deleteFormHandler = async (event) => {
+  event.preventDefault();
+
+  const restaurant_id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+  const response = await fetch(`/api/restaurant/${restaurant_id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert(response.statusText);
+  }
+};
 
 
-document.querySelector("#btn-edit").addEventListener("click", newFormHandler)
 
+document.querySelector("#btn-edit").addEventListener("click", editFormHandler)
+document.querySelector("#btn-delete").addEventListener("click", deleteFormHandler)
 // code for dropdown cagtegory select item when clicked
 const spanElstart = "<span class='mr-1 dropdownwidth'>";
 const spanElend = "</span>";

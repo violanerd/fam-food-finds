@@ -23,14 +23,14 @@
 //  }
 // document.addEventListener('click', deleteRestaurantHandler)  
 
-function getEventTarget(e) {
-  e = e || window.event;
-  return e.target || e.srcElement; 
-}
+// function getEventTarget(e) {
+//   e = e || window.event;
+//   return e.target || e.srcElement; 
+// }
 
-var ul = document.getElementById('btn-grud');
-  ul.onclick = function(event) {
-var target = getEventTarget(event);
-  console.log(target.innerText);
-  console.log(target.id)
-};
+// var ul = document.getElementById('btn-grud');
+//   ul.onclick = function(event) {
+// var target = getEventTarget(event);
+//   console.log(target.innerText);
+//   console.log(target.id)
+// };

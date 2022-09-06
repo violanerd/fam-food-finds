@@ -31,6 +31,8 @@ async function newFormHandler(event) {
     } else {
       alert(response.statusText);
     }
+  } else {
+    alert("Make sure to leave a review AND a rating!")
   }
 }
 

@@ -8,11 +8,11 @@
         <div class="h-2 bg-darkGrayishBlue rounded-t-md"></div>
         <div class="py-6 px-8">
           <label class="block font-semibold">Restaurant Name:<label>
-          <input type="text" placeholder="Restaurant name" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-name" />
+          <input type="text" value="{{restaurant.restaurant_name}}" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-name" />
           <label class="block mt-3 font-semibold">Restaurant URL:<label>
-          <input type="text" placeholder="Restaurant URL" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-url" />
+          <input type="text" value="{{restaurant.restaurant_url}}" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" name="restaurant-url" />
           <label class="block mt-3 font-semibold">Restaurant Description:<label>
-          <textarea class="px-3 py-5 mt-2 h-28 w-full appearance-none block bg-gray-50 text-gray-600 border" placeholder="Restaurant Description" name="restaurant-description"></textarea>
+          <textarea class="px-3 py-5 mt-2 h-28 w-full appearance-none block bg-gray-50 text-gray-600 border" name="restaurant-description">{{restaurant.restaurant_description}}</textarea>
           {{!-- Categories --}}
           <div class=" flex items-end justify-start gap-4 mt-3">
             <p>Categories:</p>
@@ -22,9 +22,9 @@
                     <svg class="w-5 h-5 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </span>
                 <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-white shadow-md mt-1 rounded">
-                    <ul class="text-left border rounded">
+                    <ul class="text-left border rounded" id="category">
                       {{#each categories as |category|}}
-                          <li class="px-4 py-1 hover:bg-red-50 border-b"> {{category.category_name}}</li>
+                          <a href="/"><li class="px-4 py-1 hover:bg-red-50 border-b"> {{category.category_name}}</li></a>
                       {{/each}}
                     </ul>
                 </div>

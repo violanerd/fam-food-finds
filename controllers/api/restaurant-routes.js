@@ -14,7 +14,7 @@ const {
 router.get("/", async (req, res) => {
   try {
     const restaurantData = await Restaurant.findAll({
-      attributes: ["id", "restaurant_name", "restaurant_url", "user_id"],
+      //attributes: ["id", "restaurant_name", "restaurant_url", "user_id"],
       order: [["created_at", "DESC"]],
       include: [
         {
@@ -40,7 +40,7 @@ router.get("/", async (req, res) => {
     });
     const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
     console.log(restaurants)
-
+    res.send(restaurants)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -144,10 +144,11 @@ router.put("/:id", async (req, res) => {
   try {
     const restaurantData = await Restaurant.update(
       {
-        restauarant_name: req.body.restauarant_name,
-        restauarant_url: req.body.restauarant_url,
+        restaurant_name: req.body.restaurant_name,
+        restaurant_url: req.body.restaurant_url,
+        restaurant_description: req.body.restaurant_description,
         user_id: req.body.user_id,
-      }, //req.session.user_id
+      }, 
       { where: { id: req.params.id } }
     );
     if (!restaurantData) {

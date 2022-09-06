@@ -76,23 +76,60 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", (req, res) => {
-  Review.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((dbReviewData) => {
-      if (!dbReviewData) {
-        res.status(404).json({ message: "No review found with this id!" });
-        return;
-      }
-      res.json(dbReviewData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+
+// PUT update review /api/review/:id
+router.put("/:id",  async (req, res) => {
+  try {
+    const reviewData = await Review.update(
+      {
+        review_text: req.body.review_text,
+        rating: req.body.rating,
+      }, 
+      { where: { id: req.params.id } }
+    );
+    if (!reviewData) {
+      res.status(400).json({ message: "No restaurant found" });
+      return;
+    }
+    res.status(200).json(reviewData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+// DELETE review /api/review/:id
+router.delete("/:id", async (req, res) => {
+  try {
+    const reviewtData = await Review.destroy({
+      where: { id: req.params.id },
+    });
+    if (!reviewtData) {
+      res.status(400).json({ message: "No restaurant found" });
+      return;
+    }
+    res.status(200).json(reviewtData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// router.delete("/:id", (req, res) => {
+//   Review.destroy({
+//     where: {
+//       id: req.params.id,
+//     },
+//   })
+//     .then((dbReviewData) => {
+//       if (!dbReviewData) {
+//         res.status(404).json({ message: "No review found with this id!" });
+//         return;
+//       }
+//       res.json(dbReviewData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;

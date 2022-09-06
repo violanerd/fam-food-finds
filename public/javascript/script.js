@@ -29,6 +29,8 @@ $( document ).ready(function() {
     const itemCategory = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];
-    document.getElementById('btnCategories').innerHTML = spanElstart + itemCategory + spanElend + svgEl;
+    if(itemCategory===""){document.getElementById('btnCategories').innerHTML = spanElstart + "Categories" + spanElend + svgEl;}
+    else{document.getElementById('btnCategories').innerHTML = spanElstart + itemCategory + spanElend + svgEl;}
+    
     listEl.style.display = "";
 });

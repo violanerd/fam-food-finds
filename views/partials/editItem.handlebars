@@ -2,8 +2,8 @@
   <div class="text-2xl p-3 mt-0 bg-darkGrayishBlue">
       {{restaurant_name}}
   </div>
-  <ul class="flex flex-col md:flex-row md:gap-4 text-right m-5">
-        <li class=" flex-grow text-left">
+  <div class="flex flex-col md:flex-row md:gap-4 text-right m-5">
+        <div class=" flex-grow text-left">
             <a href="{{restaurant_url}}">
             {{restaurant_url}}
             </a>
@@ -13,20 +13,24 @@
             <div class="">
                 {{format_date createdAt}}
             </div>
-        </li>
-        <li class="m-3">
+        </div>
+        <div class="m-3">
             Rating 
-        </li>
-   </ul>
-  <ul class="flex flex-col md:flex-row md:gap-4 text-right m-5 justify-end">
-    <a href="/restaurant/view/{{id}}"><li class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer">
+        </div>
+   </div>
+  <div class="flex flex-col md:flex-row md:gap-4 text-right m-5 justify-end" id="btn-grud">
+    <a href="/restaurant/view/{{id}}"><div class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-view">
       View
-    </li></a>
-    <a href="/dashboard/restaurant/edit/{{id}}"><li class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer">
+    </div></a>
+    <a href="/dashboard/restaurant/edit/{{id}}"><div class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-edit">
       Edit
-    </li></a>
-    <a id="delete-restaurant" ><li data-id="{{id}}"class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer">
+    </div></a>
+    <div data-id="{{id}}" class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-delete">
       Delete
-    </li></a>
-  </ul>
+    </div>
+    <!-- <a id="delete-restaurant" ><div data-id="{{id}}" class="border p-3 bg-darkGrayishBlue hover:bg-slate-300 hover:text-cyan-50 text-center cursor-pointer" id="btn-delete">
+      Delete
+    </div></a> -->
+  </div>
+  <script src="/javascript/dashboard.js"></script>
 </div>

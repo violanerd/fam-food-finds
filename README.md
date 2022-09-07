@@ -19,7 +19,7 @@ npm i
 ~~~
 ## Usage
 
-Open the app on heroku here: 
+Open the app on heroku here: https://fam-food-finds.herokuapp.com/ 
   
 ![](./utils/images/homepage.png)
 ![](./utils/images/Restaurant-Review.png)

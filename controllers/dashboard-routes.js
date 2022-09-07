@@ -38,6 +38,7 @@ router.get("/restaurant/new", withAuth, async (req, res) => {
   const categories = categeriesData.map((category) =>
     category.get({ plain: true })
   );
+  console.log(categories)
   res.render("new-restaurant", {
     layout: "dashboard",
     categories,

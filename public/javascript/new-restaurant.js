@@ -11,6 +11,8 @@ const newFormHandler = async function (event) {
     'textarea[name="restaurant-description"]'
   ).value;
 
+  const cagtegory_id = document.querySelector("#category_id").value;
+
   if ((restaurant_name, restaurant_url, restaurant_description)) {
     const response = await fetch("/api/restaurant", {
       method: "POST",
@@ -18,6 +20,7 @@ const newFormHandler = async function (event) {
         restaurant_name,
         restaurant_url,
         restaurant_description,
+        cagtegory_id,
       }),
       headers: { "Content-Type": "application/json" },
     });

@@ -24,7 +24,7 @@
               </button>
               <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 w-36" id="itemCategoris">
                   {{#each categories as |category|}}
-                    <li class="rounded-t bg-gray-200 py-2 px-4 block whitespace-no-wrap hover:bg-red-50 border-b"> {{category.category_name}}</li>
+                    <li class="rounded-t bg-gray-200 py-2 px-4 block whitespace-no-wrap hover:bg-red-50 border-b"><span class="hidden" id="category_id">{{category.id}}</span> {{category.category_name}}</li>
                   {{/each}}
               </ul>
             </div>

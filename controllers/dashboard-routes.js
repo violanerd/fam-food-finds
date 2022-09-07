@@ -11,19 +11,20 @@ router.get("/", withAuth, async (req, res) => {
   try {
     const restaurantData = await Restaurant.findAll({
       where: { user_id: req.session.user_id},
-      include: [{ model: User, attributes: ["username"] }],
+      include: [{ model: User, attributes: ["username"] },
+      { model: Category, attributes: ["category_name"] }],
     });
    
     const restaurants = restaurantData.map((restaurant) =>
       restaurant.get({ plain: true })
     );
+    
     res.render("post-restaurants", {
       layout: "dashboard",
       restaurants,
       username: restaurants[0].user.username, 
-      
     });
-  
+    
   } catch (err) {
     res.status(500).json(err);
   }

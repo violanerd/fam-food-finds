@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Category, Restaurant, Review, RestaurantCategory } = require("../models");
+const sequelize = require("../config/connection");
 
 //search by category
 router.get("/:category", async (req, res) => {
@@ -13,11 +14,24 @@ router.get("/:category", async (req, res) => {
       const response = await RestaurantCategory.findAll({
         where: { category_id: category_id.id },
         attributes: [],
-        include: [{ model: Restaurant}]
+        include: [{ model: Restaurant,
+          attributes:[
+            "id" , 
+            "restaurant_name", 
+            "restaurant_url",  
+            "restaurant_description", 
+            "user_id", 
+            "created_at", 
+            "updated_at",
+            [sequelize.literal('(SELECT count(user.id) FROM Review, User WHERE user.id = review.user_id AND restaurant.id = review.restaurant_id group by restaurant.id)'), 'userReviewCounts'],
+            [sequelize.literal('(SELECT sum(rating) FROM Review, User WHERE user.id = review.user_id AND restaurant.id = review.restaurant_id group by restaurant.id)'), 'totalRated'],
+            [sequelize.literal('(SELECT (sum(rating)/count(user.id)) FROM Review, User WHERE user.id = review.user_id AND restaurant.id = review.restaurant_id group by restaurant.id)'), 'avgRated'],
+          ],  }]
       });
       const restaurants = response.map((restaurant) =>
         restaurant.restaurant.get({ plain: true })
       );
+ 
       const categeriesData = await Category.findAll({});
       const categories = categeriesData.map((category) =>
         category.get({ plain: true })

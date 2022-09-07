@@ -28,7 +28,7 @@
         overflow-ellipsis overflow-hidden whitespace-nowrap text-gray-800 
         bg-red-100
         p-3
-        mt-0 ml-0 mr-0 shadow-md
+        mt-0 ml-0 mr-0 pl-5 pr-5 shadow-md
     }
 
     .dashboard-card{
@@ -52,7 +52,7 @@
     .writer_review {
         @apply
         flex flex-col items-center mr-2 ml-2 mt-0  
-        shadow-lg  overflow-hidden h-52 bg-gray-50
+        shadow-lg overflow-y-hidden overflow-hidden h-56 bg-gray-50
     }
     .nav-container {
         @apply

@@ -1,5 +1,11 @@
 const router = require("express").Router();
-const { User, Category, Restaurant, Review, RestaurantCategory } = require("../models");
+const {
+  User,
+  Category,
+  Restaurant,
+  Review,
+  RestaurantCategory,
+} = require("../models");
 
 // login form
 router.get("/login", (req, res) => {
@@ -33,21 +39,24 @@ router.get("/", async (req, res) => {
     const categories = categeriesData.map((category) =>
       category.get({ plain: true })
     );
-    res.render("homepage", { restaurants, categories, loggedIn: req.session.loggedIn });
-     //res.status(200).json(restaurantData);
+    res.render("homepage", {
+      restaurants,
+      categories,
+      loggedIn: req.session.loggedIn,
+    });
+    //res.status(200).json(restaurantData);
     // restaurants
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
 // get single post
 router.get("/restaurant/view/:id", async (req, res) => {
   const restaurantId = req.params.id;
-  try{
+  try {
     const restaurantData = await Restaurant.findOne({
-      where: { id: restaurantId},
+      where: { id: restaurantId },
       include: [
         User,
         {
@@ -57,9 +66,19 @@ router.get("/restaurant/view/:id", async (req, res) => {
       ],
     });
 
+    const reviews = await Review.findAll({
+      where: { restaurant_id: req.params.id },
+
+      attributes: [[sequelize.fn("avg", sequelize.col("rating")), "avgRating"]],
+    });
+    const avgRating = Math.round(reviews[0].dataValues.avgRating);
+
     // const restaurant = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
     const restaurant = restaurantData.get({ plain: true });
-    res.render("restaurant-view", { restaurant, loggedIn: req.session.loggedIn,});
+    res.render("restaurant-view", {
+      restaurant,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }

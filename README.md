@@ -35,4 +35,7 @@ Open the app on heroku here:
 * Bcrypt and dotenv
 * TailwindCSS
 
-
+## Collaborators
+* [Douglas Red](https://github.com/DouglasRed)
+* [Channchealy Sek](https://github.com/channchealysek)
+* [Madalyne Cross](https://github.com/violanerd)

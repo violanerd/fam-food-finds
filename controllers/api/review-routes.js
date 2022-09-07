@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("sequelize");
+const withAuth = require("../../utils/auth");
 const {
   Category,
   Restaurant,
@@ -37,7 +38,7 @@ router.get("/", (req, res) => {
 
 // get all reviews by restaurant id
 // /api/review/1
-router.get("/:id", async (req, res) => {
+router.get("/:id",withAuth, async (req, res) => {
   try {
     const reviewData = await Restaurant.findByPk(req.params.id, {
       include: [
@@ -62,7 +63,7 @@ router.get("/:id", async (req, res) => {
 
 // create a review
 // /api/review
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const reviewData = await Review.create({
       review_text: req.body.review_text,

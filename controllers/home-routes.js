@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require("../config/connection");
 const { User, Category, Restaurant, Review, RestaurantCategory } = require("../models");
 
 // login form
@@ -56,10 +57,17 @@ router.get("/restaurant/view/:id", async (req, res) => {
         },
       ],
     });
+    const reviews = await Review.findAll({
+      where: {restaurant_id: req.params.id},
+      
+      attributes: [[sequelize.fn('avg', sequelize.col('rating')),'avgRating']]
+  })
+    const avgRating = Math.round(reviews[0].dataValues.avgRating);
 
     // const restaurant = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
     const restaurant = restaurantData.get({ plain: true });
-    res.render("restaurant-view", { restaurant, loggedIn: req.session.loggedIn,});
+    //res.send({restaurant, avgRating})
+    res.render("restaurant-view", { restaurant, loggedIn: req.session.loggedIn, avgRating});
   } catch (err) {
     res.status(500).json(err);
   }

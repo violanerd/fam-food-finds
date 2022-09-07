@@ -13,7 +13,7 @@ router.get("/:category", async (req, res) => {
       const response = await RestaurantCategory.findAll({
         where: { category_id: category_id.id },
         attributes: [],
-        include: [{ model: Restaurant }],
+        include: [{ model: Restaurant}]
       });
       const restaurants = response.map((restaurant) =>
         restaurant.restaurant.get({ plain: true })

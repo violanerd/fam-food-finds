@@ -23,6 +23,18 @@ router.get("/signup", (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const restaurantData = await Restaurant.findAll({
+      attributes:[
+        "id" , 
+        "restaurant_name", 
+        "restaurant_url",  
+        "restaurant_description", 
+        "user_id", 
+        "created_at", 
+        "updated_at",
+        [sequelize.literal('(SELECT count(user.id) FROM Review, User WHERE user.id = review.user_id AND restaurant.id = review.restaurant_id group by restaurant.id)'), 'userReviewCounts'],
+        [sequelize.literal('(SELECT sum(rating) FROM Review, User WHERE user.id = review.user_id AND restaurant.id = review.restaurant_id group by restaurant.id)'), 'totalRated'],
+        [sequelize.literal('(SELECT (sum(rating)/count(user.id)) FROM Review, User WHERE user.id = review.user_id AND restaurant.id = review.restaurant_id group by restaurant.id)'), 'avgRated'],
+      ],  
       include: [
         { model: Category, attributes: ["category_name"] },
         {
@@ -36,6 +48,9 @@ router.get("/", async (req, res) => {
     const restaurants = restaurantData.map((restaurant) =>
       restaurant.get({ plain: true })
     );
+    // const restaurantsRoundAvg = restaurants.map((element) =>
+    // element.avgRated = Math.round(parseInt(element.avgRated)));
+    //console.log(restaurants)
     const categeriesData = await Category.findAll({});
     const categories = categeriesData.map((category) =>
       category.get({ plain: true })
@@ -45,7 +60,7 @@ router.get("/", async (req, res) => {
       categories,
       loggedIn: req.session.loggedIn,
     });
-    //res.status(200).json(restaurantData);
+    //res.send(avgRated)  
     // restaurants
   } catch (err) {
     res.status(500).json(err);

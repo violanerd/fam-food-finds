@@ -4,7 +4,7 @@ const restaurantdata = [
     {
         restaurant_name: "Mamma Mia",
         restaurant_url: "google.com",
-        restaurant_description: "A fake place for fake people",
+        restaurant_description: "Italian Food at it's finest!",
         user_id: 1
     },
     {
